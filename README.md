@@ -1734,6 +1734,35 @@ axios.patch(url,resource,options);
 //DELETE
 axios.delete(url,options);
 
+-API
+
+-ROOT URL
+-https:// .com/api/v1/toolkit
+
+##### REGISTER USER
+
+-POST /auth/register
+-{name:",email:,password:"}
+-sends back user object with token
+
+##### REGISTER USER-TESTING()
+
+-POST /auth/testingregister
+-{name:",email:,password:"}
+-sends back user object with token
+
+##### LOGIN USER
+
+-POST /auth/LOGIN
+-{email:,password:"}
+-sends back user object with token
+
+##### Update USER
+
+-POST /auth/updateUser
+-{email:,password:",name,lastname,location}
+-sends back user object with token
+
 - cd ..
 - restart app
 
