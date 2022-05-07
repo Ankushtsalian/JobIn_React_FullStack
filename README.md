@@ -1720,6 +1720,20 @@ return (
 npm install axios
 ```
 
+###HTTP Methods
+
+//GET
+axios.get(url,options);
+
+//POST
+axios.post(url,resource,options);
+
+//patch
+axios.patch(url,resource,options);
+
+//DELETE
+axios.delete(url,options);
+
 - cd ..
 - restart app
 
