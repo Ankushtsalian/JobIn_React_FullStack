@@ -37,7 +37,7 @@ const Register = () => {
       dispatch(loginUser({ email, password }));
       return;
     }
-    dispatch(registerUser({ name, email, password }));
+    dispatch(registerUser({ name: name, email: email, password: password }));
   };
 
   return (
@@ -71,7 +71,7 @@ const Register = () => {
           value={password}
           handleChange={handleChange}
         />
-        <button type="submit" className="btn btn-block">
+        <button type="submit" className="btn btn-block" disabled={isLoading}>
           submit
         </button>
         <p>
