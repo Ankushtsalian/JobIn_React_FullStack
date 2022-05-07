@@ -354,6 +354,8 @@ values.showAlert && <Alert />;
 
 #### Toggle Member
 
+--[React-Toastify](https://www.npmjs.com/package/react-toastify)
+
 ```js
 const toggleMember = () => {
   setValues({ ...values, isMember: !values.isMember });
