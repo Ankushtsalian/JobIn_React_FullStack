@@ -105,7 +105,7 @@ npm install styled-components
 ```
 
 ```js
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const El = styled.el`
   // styles go here
@@ -157,7 +157,7 @@ npm install react-router-dom@6
 - import four components
 
 ```js
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 ```
 
 - Connect to browser's URL with BrowserRouter
@@ -178,19 +178,19 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 ```js
 <nav>
-  <Link to='/'>Dashboard</Link>
-  <Link to='/register'>Register</Link>
-  <Link to='/landing'>Home</Link>
+  <Link to="/">Dashboard</Link>
+  <Link to="/register">Register</Link>
+  <Link to="/landing">Home</Link>
 </nav>
 ```
 
 - go to Landing.js
 
 ```js
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 return (
-  <Link to='/register' className='btn btn-hero'>
+  <Link to="/register" className="btn btn-hero">
     Login / Register
   </Link>
 );
@@ -211,17 +211,17 @@ return (
 #### Error Page
 
 ```js
-import { Link } from 'react-router-dom';
-import img from '../assets/images/not-found.svg';
-import Wrapper from '../assets/wrappers/ErrorPage';
+import { Link } from "react-router-dom";
+import img from "../assets/images/not-found.svg";
+import Wrapper from "../assets/wrappers/ErrorPage";
 
 return (
-  <Wrapper className='full-page'>
+  <Wrapper className="full-page">
     <div>
-      <img src={img} alt='not found' />
+      <img src={img} alt="not found" />
       <h3>text</h3>
       <p>text</p>
-      <Link to='/'>back home</Link>
+      <Link to="/">back home</Link>
     </div>
   </Wrapper>
 );
@@ -241,15 +241,15 @@ return (
 - show preview in Browser and themes
 
 ```js
-import { useState, useEffect } from 'react';
-import { Logo } from '../components';
-import Wrapper from '../assets/wrappers/RegisterPage';
+import { useState, useEffect } from "react";
+import { Logo } from "../components";
+import Wrapper from "../assets/wrappers/RegisterPage";
 // global context and useNavigate later
 
 const initialState = {
-  name: '',
-  email: '',
-  password: '',
+  name: "",
+  email: "",
+  password: "",
   isMember: true,
 };
 // if possible prefer local state
@@ -269,27 +269,27 @@ function Register() {
     console.log(e.target);
   };
   return (
-    <Wrapper className='full-page'>
-      <form className='form' onSubmit={onSubmit}>
+    <Wrapper className="full-page">
+      <form className="form" onSubmit={onSubmit}>
         <Logo />
         <h3>Login</h3>
 
         {/* name field */}
-        <div className='form-row'>
-          <label htmlFor='name' className='form-label'>
+        <div className="form-row">
+          <label htmlFor="name" className="form-label">
             name
           </label>
 
           <input
-            type='text'
+            type="text"
             value={values.name}
-            name='name'
+            name="name"
             onChange={handleChange}
-            className='form-input'
+            className="form-input"
           />
         </div>
 
-        <button type='submit' className='btn btn-block'>
+        <button type="submit" className="btn btn-block">
           submit
         </button>
       </form>
@@ -308,8 +308,8 @@ function Register() {
 ```js
 const FormRow = ({ type, name, value, handleChange, labelText }) => {
   return (
-    <div className='form-row'>
-      <label htmlFor={name} className='form-label'>
+    <div className="form-row">
+      <label htmlFor={name} className="form-label">
         {labelText || name}
       </label>
 
@@ -318,7 +318,7 @@ const FormRow = ({ type, name, value, handleChange, labelText }) => {
         value={value}
         name={name}
         onChange={handleChange}
-        className='form-input'
+        className="form-input"
       />
     </div>
   );
@@ -334,7 +334,7 @@ export default FormRow;
 
 ```js
 const Alert = () => {
-  return <div className='alert alert-danger'>alert goes here</div>;
+  return <div className="alert alert-danger">alert goes here</div>;
 };
 
 export default Alert;
@@ -345,6 +345,8 @@ export default Alert;
 - eventually setup in global context
 - showAlert in initialState (true || false)
 - right after h3 login
+
+- [Dynamic obj Keys](https://youtu.be/_qxCYtWm0tw)
 
 ```js
 values.showAlert && <Alert />;
@@ -361,14 +363,14 @@ return (
   <Wrapper>
     {/* control h3 */}
 
-    <h3>{values.isMember ? 'Login' : 'Register'}</h3>
+    <h3>{values.isMember ? "Login" : "Register"}</h3>
 
     {/* toggle name */}
 
     {!values.isMember && (
       <FormRow
-        type='text'
-        name='name'
+        type="text"
+        name="name"
         value={values.name}
         handleChange={handleChange}
       />
@@ -378,10 +380,10 @@ return (
     {/* toggle button */}
 
     <p>
-      {values.isMember ? 'Not a member yet?' : 'Already a member?'}
+      {values.isMember ? "Not a member yet?" : "Already a member?"}
 
-      <button type='button' onClick={toggleMember} className='member-btn'>
-        {values.isMember ? 'Register' : 'Login'}
+      <button type="button" onClick={toggleMember} className="member-btn">
+        {values.isMember ? "Register" : "Login"}
       </button>
     </p>
   </Wrapper>
@@ -396,13 +398,13 @@ return (
 - appContext.js
 
 ```js
-import React, { useState, useReducer, useContext } from 'react';
+import React, { useState, useReducer, useContext } from "react";
 
 export const initialState = {
   isLoading: false,
   showAlert: false,
-  alertText: '',
-  alertType: '',
+  alertText: "",
+  alertType: "",
 };
 const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
@@ -429,7 +431,7 @@ export { AppProvider };
 - index.js
 
 ```js
-import { AppProvider } from './context/appContext';
+import { AppProvider } from "./context/appContext";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -437,14 +439,14 @@ ReactDOM.render(
       <App />
     </AppProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 ```
 
 - Register.js
 
 ```js
-import { useAppContext } from '../context/appContext';
+import { useAppContext } from "../context/appContext";
 
 const { isLoading, showAlert } = useAppContext();
 ```
@@ -471,7 +473,7 @@ export default reducer;
 ```js
 appContext.js;
 
-import reducer from './reducer';
+import reducer from "./reducer";
 
 const [state, dispatch] = useReducer(reducer, initialState);
 ```
@@ -481,7 +483,7 @@ const [state, dispatch] = useReducer(reducer, initialState);
 ```js
 actions.js;
 
-export const DISPLAY_ALERT = 'SHOW_ALERT';
+export const DISPLAY_ALERT = "SHOW_ALERT";
 ```
 
 - setup imports (reducer and appContext)
@@ -502,8 +504,8 @@ if (action.type === DISPLAY_ALERT) {
   return {
     ...state,
     showAlert: true,
-    alertType: 'danger',
-    alertText: 'Please provide all values!',
+    alertType: "danger",
+    alertText: "Please provide all values!",
   };
 }
 ```
@@ -511,7 +513,7 @@ if (action.type === DISPLAY_ALERT) {
 ```js
 Alert.js in Components;
 
-import { useAppContext } from '../context/appContext';
+import { useAppContext } from "../context/appContext";
 
 const Alert = () => {
   const { alertType, alertText } = useAppContext();
@@ -554,7 +556,7 @@ const onSubmit = (e) => {
 ```js
 actions.js;
 
-export const CLEAR_ALERT = 'CLEAR_ALERT';
+export const CLEAR_ALERT = "CLEAR_ALERT";
 ```
 
 - setup imports (reducer and appContext)
@@ -566,8 +568,8 @@ if (action.type === CLEAR_ALERT) {
   return {
     ...state,
     showAlert: false,
-    alertType: '',
-    alertText: '',
+    alertType: "",
+    alertText: "",
   };
 }
 ```
@@ -614,14 +616,14 @@ node server
 ```js
 CommonJS;
 
-const express = require('express');
+const express = require("express");
 const app = express();
 ```
 
 ```js
 ES6;
 
-import express from 'express';
+import express from "express";
 const app = express();
 ```
 
@@ -651,11 +653,11 @@ npm install express
 ```
 
 ```js
-import express from 'express';
+import express from "express";
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Welcome!');
+app.get("/", (req, res) => {
+  res.send("Welcome!");
 });
 
 const port = process.env.PORT || 5000;
@@ -778,7 +780,7 @@ npm install styled-components
 ```
 
 ```js
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const El = styled.el`
   // styles go here
@@ -830,7 +832,7 @@ npm install history@5 react-router-dom@6
 - import four components
 
 ```js
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 ```
 
 - Connect to browser's URL with BrowserRouter
@@ -851,19 +853,19 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 ```js
 <nav>
-  <Link to='/'>Dashboard</Link>
-  <Link to='/register'>Register</Link>
-  <Link to='/landing'>Home</Link>
+  <Link to="/">Dashboard</Link>
+  <Link to="/register">Register</Link>
+  <Link to="/landing">Home</Link>
 </nav>
 ```
 
 - go to Landing.js
 
 ```js
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 return (
-  <Link to='/register' className='btn btn-hero'>
+  <Link to="/register" className="btn btn-hero">
     Login / Register
   </Link>
 );
@@ -884,17 +886,17 @@ return (
 #### Error Page
 
 ```js
-import { Link } from 'react-router-dom';
-import img from '../assets/images/not-found.svg';
-import Wrapper from '../assets/wrappers/ErrorPage';
+import { Link } from "react-router-dom";
+import img from "../assets/images/not-found.svg";
+import Wrapper from "../assets/wrappers/ErrorPage";
 
 return (
-  <Wrapper className='full-page'>
+  <Wrapper className="full-page">
     <div>
-      <img src={img} alt='not found' />
+      <img src={img} alt="not found" />
       <h3>text</h3>
       <p>text</p>
-      <Link to='/'>back home</Link>
+      <Link to="/">back home</Link>
     </div>
   </Wrapper>
 );
@@ -914,15 +916,15 @@ return (
 - show preview in Browser and themes
 
 ```js
-import { useState, useEffect } from 'react';
-import { Logo } from '../components';
-import Wrapper from '../assets/wrappers/RegisterPage';
+import { useState, useEffect } from "react";
+import { Logo } from "../components";
+import Wrapper from "../assets/wrappers/RegisterPage";
 // global context and useNavigate later
 
 const initialState = {
-  name: '',
-  email: '',
-  password: '',
+  name: "",
+  email: "",
+  password: "",
   isMember: true,
 };
 // if possible prefer local state
@@ -942,27 +944,27 @@ function Register() {
     console.log(e.target);
   };
   return (
-    <Wrapper className='full-page'>
-      <form className='form' onSubmit={onSubmit}>
+    <Wrapper className="full-page">
+      <form className="form" onSubmit={onSubmit}>
         <Logo />
         <h3>Login</h3>
 
         {/* name field */}
-        <div className='form-row'>
-          <label htmlFor='name' className='form-label'>
+        <div className="form-row">
+          <label htmlFor="name" className="form-label">
             name
           </label>
 
           <input
-            type='text'
+            type="text"
             value={values.name}
-            name='name'
+            name="name"
             onChange={handleChange}
-            className='form-input'
+            className="form-input"
           />
         </div>
 
-        <button type='submit' className='btn btn-block'>
+        <button type="submit" className="btn btn-block">
           submit
         </button>
       </form>
@@ -981,8 +983,8 @@ function Register() {
 ```js
 const FormRow = ({ type, name, value, handleChange, labelText }) => {
   return (
-    <div className='form-row'>
-      <label htmlFor={name} className='form-label'>
+    <div className="form-row">
+      <label htmlFor={name} className="form-label">
         {labelText || name}
       </label>
 
@@ -991,7 +993,7 @@ const FormRow = ({ type, name, value, handleChange, labelText }) => {
         value={value}
         name={name}
         onChange={handleChange}
-        className='form-input'
+        className="form-input"
       />
     </div>
   );
@@ -1007,7 +1009,7 @@ export default FormRow;
 
 ```js
 const Alert = () => {
-  return <div className='alert alert-danger'>alert goes here</div>;
+  return <div className="alert alert-danger">alert goes here</div>;
 };
 
 export default Alert;
@@ -1034,14 +1036,14 @@ return (
   <Wrapper>
     {/* control h3 */}
 
-    <h3>{values.isMember ? 'Login' : 'Register'}</h3>
+    <h3>{values.isMember ? "Login" : "Register"}</h3>
 
     {/* toggle name */}
 
     {!values.isMember && (
       <FormRow
-        type='text'
-        name='name'
+        type="text"
+        name="name"
         value={values.name}
         handleChange={handleChange}
       />
@@ -1051,10 +1053,10 @@ return (
     {/* toggle button */}
 
     <p>
-      {values.isMember ? 'Not a member yet?' : 'Already a member?'}
+      {values.isMember ? "Not a member yet?" : "Already a member?"}
 
-      <button type='button' onClick={toggleMember} className='member-btn'>
-        {values.isMember ? 'Register' : 'Login'}
+      <button type="button" onClick={toggleMember} className="member-btn">
+        {values.isMember ? "Register" : "Login"}
       </button>
     </p>
   </Wrapper>
@@ -1069,13 +1071,13 @@ return (
 - appContext.js
 
 ```js
-import React, { useState, useReducer, useContext } from 'react';
+import React, { useState, useReducer, useContext } from "react";
 
 export const initialState = {
   isLoading: false,
   showAlert: false,
-  alertText: '',
-  alertType: '',
+  alertText: "",
+  alertType: "",
 };
 const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
@@ -1102,7 +1104,7 @@ export { AppProvider };
 - index.js
 
 ```js
-import { AppProvider } from './context/appContext';
+import { AppProvider } from "./context/appContext";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -1110,14 +1112,14 @@ ReactDOM.render(
       <App />
     </AppProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 ```
 
 - Register.js
 
 ```js
-import { useAppContext } from '../context/appContext';
+import { useAppContext } from "../context/appContext";
 
 const { isLoading, showAlert } = useAppContext();
 ```
@@ -1144,7 +1146,7 @@ export default reducer;
 ```js
 appContext.js;
 
-import reducer from './reducer';
+import reducer from "./reducer";
 
 const [state, dispatch] = useReducer(reducer, initialState);
 ```
@@ -1154,7 +1156,7 @@ const [state, dispatch] = useReducer(reducer, initialState);
 ```js
 actions.js;
 
-export const DISPLAY_ALERT = 'SHOW_ALERT';
+export const DISPLAY_ALERT = "SHOW_ALERT";
 ```
 
 - setup imports (reducer and appContext)
@@ -1175,8 +1177,8 @@ if (action.type === DISPLAY_ALERT) {
   return {
     ...state,
     showAlert: true,
-    alertType: 'danger',
-    alertText: 'Please provide all values!',
+    alertType: "danger",
+    alertText: "Please provide all values!",
   };
 }
 ```
@@ -1184,7 +1186,7 @@ if (action.type === DISPLAY_ALERT) {
 ```js
 Alert.js in Components;
 
-import { useAppContext } from '../context/appContext';
+import { useAppContext } from "../context/appContext";
 
 const Alert = () => {
   const { alertType, alertText } = useAppContext();
@@ -1227,7 +1229,7 @@ const onSubmit = (e) => {
 ```js
 actions.js;
 
-export const CLEAR_ALERT = 'CLEAR_ALERT';
+export const CLEAR_ALERT = "CLEAR_ALERT";
 ```
 
 - setup imports (reducer and appContext)
@@ -1239,8 +1241,8 @@ if (action.type === CLEAR_ALERT) {
   return {
     ...state,
     showAlert: false,
-    alertType: '',
-    alertText: '',
+    alertType: "",
+    alertText: "",
   };
 }
 ```
@@ -1287,14 +1289,14 @@ node server
 ```js
 CommonJS;
 
-const express = require('express');
+const express = require("express");
 const app = express();
 ```
 
 ```js
 ES6;
 
-import express from 'express';
+import express from "express";
 const app = express();
 ```
 
@@ -1324,11 +1326,11 @@ npm install express
 ```
 
 ```js
-import express from 'express';
+import express from "express";
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Welcome!');
+app.get("/", (req, res) => {
+  res.send("Welcome!");
 });
 
 const port = process.env.PORT || 5000;
@@ -1411,9 +1413,9 @@ export { register, login, updateUser };
 - import functions from authController.js
 
 ```js
-router.route('/register').post(register);
-router.route('/login').post(login);
-router.route('/updateUser').patch(updateUser);
+router.route("/register").post(register);
+router.route("/login").post(login);
+router.route("/updateUser").patch(updateUser);
 
 export default router;
 ```
@@ -1421,7 +1423,7 @@ export default router;
 - import authRouter in server.js
 
 ```js
-app.use('/api/v1/auth', authRouter);
+app.use("/api/v1/auth", authRouter);
 ```
 
 #### Jobs Controller and Route Structure
@@ -1440,10 +1442,10 @@ export { createJob, deleteJob, getAllJobs, updateJob, showStats };
 - import functions from jobsController.js
 
 ```js
-router.route('/').post(createJob).get(getAllJobs);
+router.route("/").post(createJob).get(getAllJobs);
 // place before :id
-router.route('/stats').get(showStats);
-router.route('/:id').delete(deleteJob).patch(updateJob);
+router.route("/stats").get(showStats);
+router.route("/:id").delete(deleteJob).patch(updateJob);
 
 export default router;
 ```
@@ -1451,7 +1453,7 @@ export default router;
 - in server.js jobsRouter
 
 ```js
-app.use('/api/v1/jobs', jobsRouter);
+app.use("/api/v1/jobs", jobsRouter);
 ```
 
 #### Postman
@@ -1586,7 +1588,7 @@ npm install jsonwebtoken
 - createJWT
 
 ```js
-return jwt.sign({ userId: this._id }, 'jwtSecret', { expiresIn: '1d' });
+return jwt.sign({ userId: this._id }, "jwtSecret", { expiresIn: "1d" });
 ```
 
 ```js
@@ -1646,7 +1648,7 @@ npm install cors
 ```
 
 ```js
-import cors from 'cors';
+import cors from "cors";
 
 app.use(cors());
 ```
@@ -1673,7 +1675,7 @@ appContext.js;
 const initialState = {
   user: null,
   token: null,
-  userLocation: '',
+  userLocation: "",
 };
 ```
 
@@ -1694,13 +1696,13 @@ Register.js;
 
 const currentUser = { name, email, password };
 if (isMember) {
-  console.log('already a member');
+  console.log("already a member");
 } else {
   registerUser(currentUser);
 }
 
 return (
-  <button type='submit' className='btn btn-block' disabled={isLoading}>
+  <button type="submit" className="btn btn-block" disabled={isLoading}>
     submit
   </button>
 );
@@ -1724,12 +1726,12 @@ npm install axios
 ```js
 appContext.js;
 
-import axios from 'axios';
+import axios from "axios";
 
 const registerUser = async (currentUser) => {
   dispatch({ type: REGISTER_USER_BEGIN });
   try {
-    const response = await axios.post('/api/v1/auth/register', currentUser);
+    const response = await axios.post("/api/v1/auth/register", currentUser);
     console.log(response);
     const { user, token, location } = response.data;
     dispatch({
@@ -1772,8 +1774,8 @@ if (action.type === REGISTER_USER_SUCCESS) {
     jobLocation: action.payload.location,
     isLoading: false,
     showAlert: true,
-    alertType: 'success',
-    alertText: 'User Created! Redirecting...',
+    alertType: "success",
+    alertText: "User Created! Redirecting...",
   };
 }
 if (action.type === REGISTER_USER_ERROR) {
@@ -1781,7 +1783,7 @@ if (action.type === REGISTER_USER_ERROR) {
     ...state,
     isLoading: false,
     showAlert: true,
-    alertType: 'danger',
+    alertType: "danger",
     alertText: action.payload.msg,
   };
 }
@@ -1791,8 +1793,8 @@ if (action.type === REGISTER_USER_ERROR) {
 
 ```js
 Register.js;
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const { user } = useAppContext();
@@ -1801,7 +1803,7 @@ const Register = () => {
   useEffect(() => {
     if (user) {
       setTimeout(() => {
-        navigate('/');
+        navigate("/");
       }, 3000);
     }
   }, [user, navigate]);
@@ -1813,15 +1815,15 @@ const Register = () => {
 ```js
 appContext.js;
 const addUserToLocalStorage = ({ user, token, location }) => {
-  localStorage.setItem('user', JSON.stringify(user));
-  localStorage.setItem('token', token);
-  localStorage.setItem('location', location);
+  localStorage.setItem("user", JSON.stringify(user));
+  localStorage.setItem("token", token);
+  localStorage.setItem("location", location);
 };
 
 const removeUserFromLocalStorage = () => {
-  localStorage.removeItem('token');
-  localStorage.removeItem('user');
-  localStorage.removeItem('location');
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  localStorage.removeItem("location");
 };
 
 const registerUser = async (currentUser) => {
@@ -1834,15 +1836,15 @@ const registerUser = async (currentUser) => {
 };
 
 // set as default
-const token = localStorage.getItem('token');
-const user = localStorage.getItem('user');
-const userLocation = localStorage.getItem('location');
+const token = localStorage.getItem("token");
+const user = localStorage.getItem("user");
+const userLocation = localStorage.getItem("location");
 
 const initialState = {
   user: user ? JSON.parse(user) : null,
   token: token,
-  userLocation: userLocation || '',
-  jobLocation: userLocation || '',
+  userLocation: userLocation || "",
+  jobLocation: userLocation || "",
 };
 ```
 
@@ -1856,10 +1858,10 @@ npm install morgan
 ```
 
 ```js
-import morgan from 'morgan';
+import morgan from "morgan";
 
-if (process.env.NODE_ENV !== 'production') {
-  app.use(morgan('dev'));
+if (process.env.NODE_ENV !== "production") {
+  app.use(morgan("dev"));
 }
 ```
 
@@ -1869,8 +1871,8 @@ if (process.env.NODE_ENV !== 'production') {
 - import/export
 
 ```js
-import { StatusCodes } from 'http-status-codes';
-import CustomAPIError from './custom-api.js';
+import { StatusCodes } from "http-status-codes";
+import CustomAPIError from "./custom-api.js";
 
 class UnauthenticatedError extends CustomAPIError {
   constructor(message) {
@@ -1896,16 +1898,16 @@ authController.js;
 const login = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    throw new BadRequestError('Please provide all values');
+    throw new BadRequestError("Please provide all values");
   }
-  const user = await User.findOne({ email }).select('+password');
+  const user = await User.findOne({ email }).select("+password");
 
   if (!user) {
-    throw new UnauthenticatedError('Invalid Credentials');
+    throw new UnauthenticatedError("Invalid Credentials");
   }
   const isPasswordCorrect = await user.comparePassword(password);
   if (!isPasswordCorrect) {
-    throw new UnauthenticatedError('Invalid Credentials');
+    throw new UnauthenticatedError("Invalid Credentials");
   }
   const token = user.createJWT();
   user.password = undefined;
@@ -1946,7 +1948,7 @@ appContext.js;
 const loginUser = async (currentUser) => {
   dispatch({ type: LOGIN_USER_BEGIN });
   try {
-    const { data } = await axios.post('/api/v1/auth/login', currentUser);
+    const { data } = await axios.post("/api/v1/auth/login", currentUser);
     const { user, token, location } = data;
 
     dispatch({
@@ -1983,8 +1985,8 @@ if (action.type === LOGIN_USER_SUCCESS) {
     userLocation: action.payload.location,
     jobLocation: action.payload.location,
     showAlert: true,
-    alertType: 'success',
-    alertText: 'Login Successful! Redirecting...',
+    alertType: "success",
+    alertText: "Login Successful! Redirecting...",
   };
 }
 if (action.type === LOGIN_USER_ERROR) {
@@ -1992,7 +1994,7 @@ if (action.type === LOGIN_USER_ERROR) {
     ...state,
     isLoading: false,
     showAlert: true,
-    alertType: 'danger',
+    alertType: "danger",
     alertText: action.payload.msg,
   };
 }
@@ -2002,9 +2004,9 @@ if (action.type === LOGIN_USER_ERROR) {
 
 ```js
 actions.js;
-export const SETUP_USER_BEGIN = 'SETUP_USER_BEGIN';
-export const SETUP_USER_SUCCESS = 'SETUP_USER_SUCCESS';
-export const SETUP_USER_ERROR = 'SETUP_USER_ERROR';
+export const SETUP_USER_BEGIN = "SETUP_USER_BEGIN";
+export const SETUP_USER_SUCCESS = "SETUP_USER_SUCCESS";
+export const SETUP_USER_ERROR = "SETUP_USER_ERROR";
 ```
 
 ```js
@@ -2045,7 +2047,7 @@ if (action.type === SETUP_USER_SUCCESS) {
     userLocation: action.payload.location,
     jobLocation: action.payload.location,
     showAlert: true,
-    alertType: 'success',
+    alertType: "success",
     alertText: action.payload.alertText,
   };
 }
@@ -2054,7 +2056,7 @@ if (action.type === SETUP_USER_ERROR) {
     ...state,
     isLoading: false,
     showAlert: true,
-    alertType: 'danger',
+    alertType: "danger",
     alertText: action.payload.msg,
   };
 }
@@ -2076,14 +2078,14 @@ const onSubmit = (e) => {
   if (isMember) {
     setupUser({
       currentUser,
-      endPoint: 'login',
-      alertText: 'Login Successful! Redirecting...',
+      endPoint: "login",
+      alertText: "Login Successful! Redirecting...",
     });
   } else {
     setupUser({
       currentUser,
-      endPoint: 'register',
-      alertText: 'User Created! Redirecting...',
+      endPoint: "register",
+      alertText: "User Created! Redirecting...",
     });
   }
 };
@@ -2098,7 +2100,7 @@ const onSubmit = (e) => {
 - replace in home route
 
 ```js
-<Route path='/' element={<div>dashboard</div>} />
+<Route path="/" element={<div>dashboard</div>} />
 ```
 
 - create <b>dashboard</b> directory in pages
@@ -2136,15 +2138,15 @@ App.js
 ```js
 SharedLayout.js;
 
-import { Outlet, Link } from 'react-router-dom';
-import Wrapper from '../../assets/wrappers/SharedLayout';
+import { Outlet, Link } from "react-router-dom";
+import Wrapper from "../../assets/wrappers/SharedLayout";
 
 const SharedLayout = () => {
   return (
     <Wrapper>
       <nav>
-        <Link to='all-jobs'>all jobs</Link>
-        <Link to='add-job'>all jobs</Link>
+        <Link to="all-jobs">all jobs</Link>
+        <Link to="add-job">all jobs</Link>
       </nav>
       <Outlet />
     </Wrapper>
@@ -2168,7 +2170,7 @@ App.js
 
 ```js
 <Route
-  path='/'
+  path="/"
   element={
     <ProtectedRoute>
       <SharedLayout />
@@ -2180,13 +2182,13 @@ App.js
 ```js
 ProtectedRoute.js;
 
-import { Navigate } from 'react-router-dom';
-import { useAppContext } from '../context/appContext';
+import { Navigate } from "react-router-dom";
+import { useAppContext } from "../context/appContext";
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAppContext();
   if (!user) {
-    return <Navigate to='/landing' />;
+    return <Navigate to="/landing" />;
   }
   return children;
 };
@@ -2202,21 +2204,21 @@ const ProtectedRoute = ({ children }) => {
 ```js
 SharedLayout.js;
 
-import { Outlet } from 'react-router-dom';
-import { Navbar, SmallSidebar, BigSidebar } from '../../components';
-import Wrapper from '../../assets/wrappers/SharedLayout';
+import { Outlet } from "react-router-dom";
+import { Navbar, SmallSidebar, BigSidebar } from "../../components";
+import Wrapper from "../../assets/wrappers/SharedLayout";
 
 const SharedLayout = () => {
   const { user } = useAppContext();
   return (
     <>
       <Wrapper>
-        <main className='dashboard'>
+        <main className="dashboard">
           <SmallSidebar />
           <BigSidebar />
           <div>
             <Navbar />
-            <div className='dashboard-page'>
+            <div className="dashboard-page">
               <Outlet />
             </div>
           </div>
@@ -2260,37 +2262,37 @@ export default Navbar
 ```js
 Navbar.js;
 
-import { useState } from 'react';
-import { FaAlignLeft, FaUserCircle, FaCaretDown } from 'react-icons/fa';
-import { useAppContext } from '../context/appContext';
-import Logo from './Logo';
-import Wrapper from '../assets/wrappers/Navbar';
+import { useState } from "react";
+import { FaAlignLeft, FaUserCircle, FaCaretDown } from "react-icons/fa";
+import { useAppContext } from "../context/appContext";
+import Logo from "./Logo";
+import Wrapper from "../assets/wrappers/Navbar";
 const Navbar = () => {
   return (
     <Wrapper>
-      <div className='nav-center'>
+      <div className="nav-center">
         <button
-          className='toggle-btn'
-          onClick={() => console.log('toggle sidebar')}
+          className="toggle-btn"
+          onClick={() => console.log("toggle sidebar")}
         >
           <FaAlignLeft />
         </button>
 
         <div>
           <Logo />
-          <h3 className='logo-text'>dashboard</h3>
+          <h3 className="logo-text">dashboard</h3>
         </div>
 
-        <div className='btn-container'>
-          <button className='btn' onClick={() => console.log('show logout')}>
+        <div className="btn-container">
+          <button className="btn" onClick={() => console.log("show logout")}>
             <FaUserCircle />
             john
             <FaCaretDown />
           </button>
-          <div className='dropdown show-dropdown'>
+          <div className="dropdown show-dropdown">
             <button
-              onClick={() => console.log('logout user')}
-              className='dropdown-btn'
+              onClick={() => console.log("logout user")}
+              className="dropdown-btn"
             >
               logout
             </button>
@@ -2309,7 +2311,7 @@ export default Navbar;
 ```js
 actions.js;
 
-export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
+export const TOGGLE_SIDEBAR = "TOGGLE_SIDEBAR";
 ```
 
 - import/export
@@ -2340,7 +2342,7 @@ Navbar.js;
 const { toggleSidebar } = useAppContext();
 
 return (
-  <button className='toggle-btn' onClick={toggleSidebar}>
+  <button className="toggle-btn" onClick={toggleSidebar}>
     <FaAlignLeft />
   </button>
 );
@@ -2373,7 +2375,7 @@ const [showLogout, setShowLogout] = useState(false)
 ```js
 actions.js;
 
-export const LOGOUT_USER = 'LOGOUT_USER';
+export const LOGOUT_USER = "LOGOUT_USER";
 ```
 
 - import/export
@@ -2392,15 +2394,15 @@ value={{logoutUser}}
 ```js
 reducer.js;
 
-import { initialState } from './appContext';
+import { initialState } from "./appContext";
 
 if (action.type === LOGOUT_USER) {
   return {
     ...initialState,
     user: null,
     token: null,
-    userLocation: '',
-    jobLocation: '',
+    userLocation: "",
+    jobLocation: "",
   };
 }
 ```
@@ -2411,16 +2413,16 @@ Navbar.js;
 const { user, logoutUser, toggleSidebar } = useAppContext();
 
 return (
-  <div className='btn-container'>
-    <button className='btn' onClick={() => setShowLogout(!showLogout)}>
+  <div className="btn-container">
+    <button className="btn" onClick={() => setShowLogout(!showLogout)}>
       <FaUserCircle />
       {user.name}
       {user && user.name}
       {user?.name} // optional chaining
       <FaCaretDown />
     </button>
-    <div className={showLogout ? 'dropdown show-dropdown' : 'dropdown'}>
-      <button onClick={logoutUser} className='dropdown-btn'>
+    <div className={showLogout ? "dropdown show-dropdown" : "dropdown"}>
+      <button onClick={logoutUser} className="dropdown-btn">
         logout
       </button>
     </div>
@@ -2434,34 +2436,34 @@ return (
 - setup links.js
 
 ```js
-import { IoBarChartSharp } from 'react-icons/io5';
-import { MdQueryStats } from 'react-icons/md';
-import { FaWpforms } from 'react-icons/fa';
-import { ImProfile } from 'react-icons/im';
+import { IoBarChartSharp } from "react-icons/io5";
+import { MdQueryStats } from "react-icons/md";
+import { FaWpforms } from "react-icons/fa";
+import { ImProfile } from "react-icons/im";
 
 const links = [
   {
     id: 1,
-    text: 'stats',
-    path: '/',
+    text: "stats",
+    path: "/",
     icon: <IoBarChartSharp />,
   },
   {
     id: 2,
-    text: 'all jobs',
-    path: 'all-jobs',
+    text: "all jobs",
+    path: "all-jobs",
     icon: <MdQueryStats />,
   },
   {
     id: 3,
-    text: 'add job',
-    path: 'add-job',
+    text: "add job",
+    path: "add-job",
     icon: <FaWpforms />,
   },
   {
     id: 4,
-    text: 'profile',
-    path: 'profile',
+    text: "profile",
+    path: "profile",
     icon: <ImProfile />,
   },
 ];
@@ -2474,25 +2476,25 @@ export default links;
 ```js
 SmallSidebar.js;
 
-import Wrapper from '../assets/wrappers/SmallSidebar';
-import { FaTimes } from 'react-icons/fa';
-import { useAppContext } from '../context/appContext';
-import links from '../utils/links';
-import { NavLink } from 'react-router-dom';
-import Logo from './Logo';
+import Wrapper from "../assets/wrappers/SmallSidebar";
+import { FaTimes } from "react-icons/fa";
+import { useAppContext } from "../context/appContext";
+import links from "../utils/links";
+import { NavLink } from "react-router-dom";
+import Logo from "./Logo";
 
 export const SmallSidebar = () => {
   return (
     <Wrapper>
-      <div className='sidebar-container show-sidebar'>
-        <div className='content'>
-          <button className='close-btn' onClick={() => console.log('toggle')}>
+      <div className="sidebar-container show-sidebar">
+        <div className="content">
+          <button className="close-btn" onClick={() => console.log("toggle")}>
             <FaTimes />
           </button>
           <header>
             <Logo />
           </header>
-          <div className='nav-links'>nav links</div>
+          <div className="nav-links">nav links</div>
         </div>
       </div>
     </Wrapper>
@@ -2516,7 +2518,7 @@ SmallSidebar.js;
 return (
   <div
     className={
-      showSidebar ? 'sidebar-container show-sidebar' : 'sidebar-container'
+      showSidebar ? "sidebar-container show-sidebar" : "sidebar-container"
     }
   ></div>
 );
@@ -2526,7 +2528,7 @@ return (
 SmallSidebar.js;
 
 return (
-  <button className='close-btn' onClick={toggleSidebar}>
+  <button className="close-btn" onClick={toggleSidebar}>
     <FaTimes />
   </button>
 );
@@ -2537,10 +2539,10 @@ return (
 ```js
 SmallSidebar.js;
 
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 return (
-  <div className='nav-links'>
+  <div className="nav-links">
     {links.map((link) => {
       const { text, path, id, icon } = link;
 
@@ -2548,12 +2550,12 @@ return (
         <NavLink
           to={path}
           className={({ isActive }) =>
-            isActive ? 'nav-link active' : 'nav-link'
+            isActive ? "nav-link active" : "nav-link"
           }
           key={id}
           onClick={toggleSidebar}
         >
-          <span className='icon'>{icon}</span>
+          <span className="icon">{icon}</span>
           {text}
         </NavLink>
       );
@@ -2569,12 +2571,12 @@ return (
 - also can setup in links.js, preference
 
 ```js
-import { NavLink } from 'react-router-dom';
-import links from '../utils/links';
+import { NavLink } from "react-router-dom";
+import links from "../utils/links";
 
 const NavLinks = ({ toggleSidebar }) => {
   return (
-    <div className='nav-links'>
+    <div className="nav-links">
       {links.map((link) => {
         const { text, path, id, icon } = link;
 
@@ -2584,10 +2586,10 @@ const NavLinks = ({ toggleSidebar }) => {
             key={id}
             onClick={toggleSidebar}
             className={({ isActive }) =>
-              isActive ? 'nav-link active' : 'nav-link'
+              isActive ? "nav-link active" : "nav-link"
             }
           >
-            <span className='icon'>{icon}</span>
+            <span className="icon">{icon}</span>
             {text}
           </NavLink>
         );
@@ -2610,10 +2612,10 @@ return <NavLinks toggleSidebar={toggleSidebar}>
 #### Big Sidebar
 
 ```js
-import { useAppContext } from '../context/appContext';
-import NavLinks from './NavLinks';
-import Logo from '../components/Logo';
-import Wrapper from '../assets/wrappers/BigSidebar';
+import { useAppContext } from "../context/appContext";
+import NavLinks from "./NavLinks";
+import Logo from "../components/Logo";
+import Wrapper from "../assets/wrappers/BigSidebar";
 
 const BigSidebar = () => {
   const { showSidebar } = useAppContext();
@@ -2621,10 +2623,10 @@ const BigSidebar = () => {
     <Wrapper>
       <div
         className={
-          showSidebar ? 'sidebar-container ' : 'sidebar-container show-sidebar'
+          showSidebar ? "sidebar-container " : "sidebar-container show-sidebar"
         }
       >
-        <div className='content'>
+        <div className="content">
           <header>
             <Logo />
           </header>
@@ -2644,7 +2646,7 @@ export default BigSidebar;
 
 ```js
 const auth = async (req, res, next) => {
-  console.log('authenticate user');
+  console.log("authenticate user");
   next();
 };
 
@@ -2654,9 +2656,9 @@ export default auth;
 ```js
 authRoutes.js;
 
-import authenticateUser from '../middleware/auth.js';
+import authenticateUser from "../middleware/auth.js";
 
-router.route('/updateUser').patch(authenticateUser, updateUser);
+router.route("/updateUser").patch(authenticateUser, updateUser);
 ```
 
 - two options
@@ -2664,18 +2666,18 @@ router.route('/updateUser').patch(authenticateUser, updateUser);
 ```js
 server.js;
 
-import authenticateUser from './middleware/auth.js';
-app.use('/api/v1/jobs', authenticateUser, jobsRouter);
+import authenticateUser from "./middleware/auth.js";
+app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 ```
 
 ```js
 jobsRoutes.js;
 
-import authenticateUser from './middleware/auth.js';
+import authenticateUser from "./middleware/auth.js";
 
 // all routes !!!!
 
-router.route('/stats').get(authenticateUser, showStats);
+router.route("/stats").get(authenticateUser, showStats);
 ```
 
 #### Auth - Bearer Schema
@@ -2708,7 +2710,7 @@ const auth = async (req, res, next) => {
 
 ```js
 const jsonData = pm.response.json();
-pm.globals.set('token', jsonData.token);
+pm.globals.set("token", jsonData.token);
 
 Type: Bearer;
 
@@ -2724,7 +2726,7 @@ Token: {
 ```js
 auth.js;
 
-import { UnAuthenticatedError } from '../errors/index.js';
+import { UnAuthenticatedError } from "../errors/index.js";
 
 const auth = async (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -2732,7 +2734,7 @@ const auth = async (req, res, next) => {
   if (!authHeader) {
     // why, well is it 400 or 404?
     // actually 401
-    throw new UnAuthenticatedError('Authentication Invalid');
+    throw new UnAuthenticatedError("Authentication Invalid");
   }
 
   next();
@@ -2742,16 +2744,16 @@ const auth = async (req, res, next) => {
 #### Auth Middleware
 
 ```js
-import jwt from 'jsonwebtoken';
-import { UnAuthenticatedError } from '../errors/index.js';
+import jwt from "jsonwebtoken";
+import { UnAuthenticatedError } from "../errors/index.js";
 
 const auth = async (req, res, next) => {
   // check header
   const authHeader = req.headers.authorization;
-  if (!authHeader || !authHeader.startsWith('Bearer')) {
-    throw new UnauthenticatedError('Authentication invalid');
+  if (!authHeader || !authHeader.startsWith("Bearer")) {
+    throw new UnauthenticatedError("Authentication invalid");
   }
-  const token = authHeader.split(' ')[1];
+  const token = authHeader.split(" ")[1];
 
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
@@ -2761,7 +2763,7 @@ const auth = async (req, res, next) => {
     req.user = { userId: payload.userId };
     next();
   } catch (error) {
-    throw new UnauthenticatedError('Authentication invalid');
+    throw new UnauthenticatedError("Authentication invalid");
   }
 };
 
@@ -2774,7 +2776,7 @@ export default auth;
 const updateUser = async (req, res) => {
   const { email, name, lastName, location } = req.body;
   if (!email || !name || !lastName || !location) {
-    throw new BadRequestError('Please provide all values');
+    throw new BadRequestError("Please provide all values");
   }
 
   const user = await User.findOne({ _id: req.user.userId });
@@ -2806,9 +2808,9 @@ const updateUser = async (req, res) => {
 ```js
 User.js;
 
-UserSchema.pre('save', async function () {
+UserSchema.pre("save", async function () {
   console.log(this.modifiedPaths());
-  console.log(this.isModified('name'));
+  console.log(this.isModified("name"));
 
   // if (!this.isModified('password')) return
   // const salt = await bcrypt.genSalt(10)
@@ -2831,10 +2833,10 @@ value={{updateUser}}
 ```js
 Profile.js;
 
-import { useState } from 'react';
-import { FormRow, Alert } from '../../components';
-import { useAppContext } from '../../context/appContext';
-import Wrapper from '../../assets/wrappers/DashboardFormPage';
+import { useState } from "react";
+import { FormRow, Alert } from "../../components";
+import { useAppContext } from "../../context/appContext";
+import Wrapper from "../../assets/wrappers/DashboardFormPage";
 
 const Profile = () => {
   const { user, showAlert, displayAlert, updateUser, isLoading } =
@@ -2856,40 +2858,40 @@ const Profile = () => {
   };
   return (
     <Wrapper>
-      <form className='form' onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <h3>profile </h3>
         {showAlert && <Alert />}
 
         {/* name */}
-        <div className='form-center'>
+        <div className="form-center">
           <FormRow
-            type='text'
-            name='name'
+            type="text"
+            name="name"
             value={name}
             handleChange={(e) => setName(e.target.value)}
           />
           <FormRow
-            labelText='last name'
-            type='text'
-            name='lastName'
+            labelText="last name"
+            type="text"
+            name="lastName"
             value={lastName}
             handleChange={(e) => setLastName(e.target.value)}
           />
           <FormRow
-            type='email'
-            name='email'
+            type="email"
+            name="email"
             value={email}
             handleChange={(e) => setEmail(e.target.value)}
           />
 
           <FormRow
-            type='text'
-            name='location'
+            type="text"
+            name="location"
             value={location}
             handleChange={(e) => setLocation(e.target.value)}
           />
-          <button className='btn btn-block' type='submit' disabled={isLoading}>
-            {isLoading ? 'Please Wait...' : 'save changes'}
+          <button className="btn btn-block" type="submit" disabled={isLoading}>
+            {isLoading ? "Please Wait..." : "save changes"}
           </button>
         </div>
       </form>
@@ -2907,7 +2909,7 @@ appContext.js;
 
 const updaterUser = async (currentUser) => {
   try {
-    const { data } = await axios.patch('/api/v1/auth/updateUser', currentUser, {
+    const { data } = await axios.patch("/api/v1/auth/updateUser", currentUser, {
       headers: {
         Authorization: `Bearer ${state.token}`,
       },
@@ -2924,7 +2926,7 @@ const updaterUser = async (currentUser) => {
 ```js
 appContext.js;
 
-axios.defaults.headers.common['Authorization'] = `Bearer ${state.token}`;
+axios.defaults.headers.common["Authorization"] = `Bearer ${state.token}`;
 ```
 
 #### Axios - Setup Instance
@@ -2933,7 +2935,7 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${state.token}`;
 AppContext.js;
 
 const authFetch = axios.create({
-  baseURL: '/api/v1',
+  baseURL: "/api/v1",
   headers: {
     Authorization: `Bearer ${state.token}`,
   },
@@ -2941,7 +2943,7 @@ const authFetch = axios.create({
 
 const updaterUser = async (currentUser) => {
   try {
-    const { data } = await authFetch.patch('/auth/updateUser', currentUser);
+    const { data } = await authFetch.patch("/auth/updateUser", currentUser);
   } catch (error) {
     console.log(error.response);
   }
@@ -2958,7 +2960,7 @@ appContext.js;
 // response interceptor
 authFetch.interceptors.request.use(
   (config) => {
-    config.headers.common['Authorization'] = `Bearer ${state.token}`;
+    config.headers.common["Authorization"] = `Bearer ${state.token}`;
     return config;
   },
   (error) => {
@@ -2973,7 +2975,7 @@ authFetch.interceptors.response.use(
   (error) => {
     console.log(error.response);
     if (error.response.status === 401) {
-      console.log('AUTH ERROR');
+      console.log("AUTH ERROR");
     }
     return Promise.reject(error);
   }
@@ -2984,9 +2986,9 @@ authFetch.interceptors.response.use(
 
 ```js
 actions.js;
-export const UPDATE_USER_BEGIN = 'UPDATE_USER_BEGIN';
-export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
-export const UPDATE_USER_ERROR = 'UPDATE_USER_ERROR';
+export const UPDATE_USER_BEGIN = "UPDATE_USER_BEGIN";
+export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
+export const UPDATE_USER_ERROR = "UPDATE_USER_ERROR";
 ```
 
 ```js
@@ -2995,7 +2997,7 @@ appContext.js;
 const updateUser = async (currentUser) => {
   dispatch({ type: UPDATE_USER_BEGIN });
   try {
-    const { data } = await authFetch.patch('/auth/updateUser', currentUser);
+    const { data } = await authFetch.patch("/auth/updateUser", currentUser);
 
     // no token
     const { user, location, token } = data;
@@ -3066,7 +3068,7 @@ authFetch.interceptors.response.use(
 const updateUser = async (currentUser) => {
   dispatch({ type: UPDATE_USER_BEGIN });
   try {
-    const { data } = await authFetch.patch('/auth/updateUser', currentUser);
+    const { data } = await authFetch.patch("/auth/updateUser", currentUser);
 
     // no token
     const { user, location } = data;
@@ -3096,46 +3098,46 @@ const updateUser = async (currentUser) => {
 ```js
 Job.js;
 
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const JobSchema = new mongoose.Schema(
   {
     company: {
       type: String,
-      required: [true, 'Please provide company name'],
+      required: [true, "Please provide company name"],
       maxlength: 50,
     },
     position: {
       type: String,
-      required: [true, 'Please provide position'],
+      required: [true, "Please provide position"],
       maxlength: 100,
     },
     status: {
       type: String,
-      enum: ['interview', 'declined', 'pending'],
-      default: 'pending',
+      enum: ["interview", "declined", "pending"],
+      default: "pending",
     },
 
     jobType: {
       type: String,
-      enum: ['full-time', 'part-time', 'remote', 'internship'],
-      default: 'full-time',
+      enum: ["full-time", "part-time", "remote", "internship"],
+      default: "full-time",
     },
     jobLocation: {
       type: String,
-      default: 'my city',
+      default: "my city",
       required: true,
     },
     createdBy: {
       type: mongoose.Types.ObjectId,
-      ref: 'User',
-      required: [true, 'Please provide user'],
+      ref: "User",
+      required: [true, "Please provide user"],
     },
   },
   { timestamps: true }
 );
 
-export default mongoose.model('Job', JobSchema);
+export default mongoose.model("Job", JobSchema);
 ```
 
 #### Create Job
@@ -3143,15 +3145,15 @@ export default mongoose.model('Job', JobSchema);
 ```js
 jobsController.js;
 
-import Job from '../models/Job.js';
-import { StatusCodes } from 'http-status-codes';
-import { BadRequestError, NotFoundError } from '../errors/index.js';
+import Job from "../models/Job.js";
+import { StatusCodes } from "http-status-codes";
+import { BadRequestError, NotFoundError } from "../errors/index.js";
 
 const createJob = async (req, res) => {
   const { position, company } = req.body;
 
   if (!position || !company) {
-    throw new BadRequestError('Please Provide All Values');
+    throw new BadRequestError("Please Provide All Values");
   }
 
   req.body.createdBy = req.user.userId;
@@ -3167,23 +3169,23 @@ const createJob = async (req, res) => {
 appContext.js;
 const initialState = {
   isEditing: false,
-  editJobId: '',
-  position: '',
-  company: '',
+  editJobId: "",
+  position: "",
+  company: "",
   // jobLocation
-  jobTypeOptions: ['full-time', 'part-time', 'remote', 'internship'],
-  jobType: 'full-time',
-  statusOptions: ['pending', 'interview', 'declined'],
-  status: 'pending',
+  jobTypeOptions: ["full-time", "part-time", "remote", "internship"],
+  jobType: "full-time",
+  statusOptions: ["pending", "interview", "declined"],
+  status: "pending",
 };
 ```
 
 #### AddJob Page - Setup
 
 ```js
-import { FormRow, Alert } from '../../components';
-import { useAppContext } from '../../context/appContext';
-import Wrapper from '../../assets/wrappers/DashboardFormPage';
+import { FormRow, Alert } from "../../components";
+import { useAppContext } from "../../context/appContext";
+import Wrapper from "../../assets/wrappers/DashboardFormPage";
 const AddJob = () => {
   const {
     isEditing,
@@ -3205,7 +3207,7 @@ const AddJob = () => {
       displayAlert();
       return;
     }
-    console.log('create job');
+    console.log("create job");
   };
 
   const handleJobInput = (e) => {
@@ -3216,30 +3218,30 @@ const AddJob = () => {
 
   return (
     <Wrapper>
-      <form className='form'>
-        <h3>{isEditing ? 'edit job' : 'add job'} </h3>
+      <form className="form">
+        <h3>{isEditing ? "edit job" : "add job"} </h3>
         {showAlert && <Alert />}
 
         {/* position */}
-        <div className='form-center'>
+        <div className="form-center">
           <FormRow
-            type='text'
-            name='position'
+            type="text"
+            name="position"
             value={position}
             handleChange={handleJobInput}
           />
           {/* company */}
           <FormRow
-            type='text'
-            name='company'
+            type="text"
+            name="company"
             value={company}
             handleChange={handleJobInput}
           />
           {/* location */}
           <FormRow
-            type='text'
-            labelText='location'
-            name='jobLocation'
+            type="text"
+            labelText="location"
+            name="jobLocation"
             value={jobLocation}
             handleChange={handleJobInput}
           />
@@ -3247,10 +3249,10 @@ const AddJob = () => {
 
           {/* job status */}
 
-          <div className='btn-container'>
+          <div className="btn-container">
             <button
-              className='btn btn-block submit-btn'
-              type='submit'
+              className="btn btn-block submit-btn"
+              type="submit"
               onClick={handleSubmit}
             >
               submit
@@ -3270,16 +3272,16 @@ export default AddJob;
 ```js
 return (
   // job type
-  <div className='form-row'>
-    <label htmlFor='jobType' className='form-label'>
+  <div className="form-row">
+    <label htmlFor="jobType" className="form-label">
       job type
     </label>
 
     <select
-      name='jobType'
+      name="jobType"
       value={jobType}
       onChange={handleJobInput}
-      className='form-select'
+      className="form-select"
     >
       {jobTypeOptions.map((itemValue, index) => {
         return (
@@ -3301,8 +3303,8 @@ return (
 ```js
 const FormRowSelect = ({ labelText, name, value, handleChange, list }) => {
   return (
-    <div className='form-row'>
-      <label htmlFor={name} className='form-label'>
+    <div className="form-row">
+      <label htmlFor={name} className="form-label">
         {labelText || name}
       </label>
 
@@ -3310,7 +3312,7 @@ const FormRowSelect = ({ labelText, name, value, handleChange, list }) => {
         name={name}
         value={value}
         onChange={handleChange}
-        className='form-select'
+        className="form-select"
       >
         {list.map((itemValue, index) => {
           return (
@@ -3335,7 +3337,7 @@ return (
     {/* job status */}
 
     <FormRowSelect
-      name='status'
+      name="status"
       value={status}
       handleChange={handleJobInput}
       list={statusOptions}
@@ -3343,8 +3345,8 @@ return (
 
     {/* job type */}
     <FormRowSelect
-      labelText='type'
-      name='jobType'
+      labelText="type"
+      name="jobType"
       value={jobType}
       handleChange={handleJobInput}
       list={jobTypeOptions}
@@ -3360,7 +3362,7 @@ return (
 ```js
 actions.js;
 
-export const HANDLE_CHANGE = 'HANDLE_CHANGE';
+export const HANDLE_CHANGE = "HANDLE_CHANGE";
 ```
 
 ```js
@@ -3399,7 +3401,7 @@ const handleJobInput = (e) => {
 ```js
 actions.js;
 
-export const CLEAR_VALUES = 'CLEAR_VALUES';
+export const CLEAR_VALUES = "CLEAR_VALUES";
 ```
 
 ```js
@@ -3418,12 +3420,12 @@ reducer.js;
 if (action.type === CLEAR_VALUES) {
   const initialState = {
     isEditing: false,
-    editJobId: '',
-    position: '',
-    company: '',
+    editJobId: "",
+    position: "",
+    company: "",
     jobLocation: state.userLocation,
-    jobType: 'full-time',
-    status: 'pending',
+    jobType: "full-time",
+    status: "pending",
   };
   return { ...state, ...initialState };
 }
@@ -3435,11 +3437,11 @@ AddJob.js;
 const { clearValues } = useAppContext();
 
 return (
-  <div className='btn-container'>
+  <div className="btn-container">
     {/* submit button */}
 
     <button
-      className='btn btn-block clear-btn'
+      className="btn btn-block clear-btn"
       onClick={(e) => {
         e.preventDefault();
         clearValues();
@@ -3456,9 +3458,9 @@ return (
 ```js
 actions.js;
 
-export const CREATE_JOB_BEGIN = 'CREATE_JOB_BEGIN';
-export const CREATE_JOB_SUCCESS = 'CREATE_JOB_SUCCESS';
-export const CREATE_JOB_ERROR = 'CREATE_JOB_ERROR';
+export const CREATE_JOB_BEGIN = "CREATE_JOB_BEGIN";
+export const CREATE_JOB_SUCCESS = "CREATE_JOB_SUCCESS";
+export const CREATE_JOB_ERROR = "CREATE_JOB_ERROR";
 ```
 
 ```js
@@ -3469,7 +3471,7 @@ const createJob = async () => {
   try {
     const { position, company, jobLocation, jobType, status } = state;
 
-    await authFetch.post('/jobs', {
+    await authFetch.post("/jobs", {
       company,
       position,
       jobLocation,
@@ -3524,8 +3526,8 @@ if (action.type === CREATE_JOB_SUCCESS) {
     ...state,
     isLoading: false,
     showAlert: true,
-    alertType: 'success',
-    alertText: 'New Job Created!',
+    alertType: "success",
+    alertText: "New Job Created!",
   };
 }
 if (action.type === CREATE_JOB_ERROR) {
@@ -3533,7 +3535,7 @@ if (action.type === CREATE_JOB_ERROR) {
     ...state,
     isLoading: false,
     showAlert: true,
-    alertType: 'danger',
+    alertType: "danger",
     alertText: action.payload.msg,
   };
 }
@@ -3570,8 +3572,8 @@ const initialState = {
 
 ```js
 actions.js;
-export const GET_JOBS_BEGIN = 'GET_JOBS_BEGIN';
-export const GET_JOBS_SUCCESS = 'GET_JOBS_SUCCESS';
+export const GET_JOBS_BEGIN = "GET_JOBS_BEGIN";
+export const GET_JOBS_SUCCESS = "GET_JOBS_SUCCESS";
 ```
 
 ```js
@@ -3637,7 +3639,7 @@ if (action.type === GET_JOBS_SUCCESS) {
 ```js
 AllJobs.js;
 
-import { JobsContainer, SearchContainer } from '../../components';
+import { JobsContainer, SearchContainer } from "../../components";
 const AllJobs = () => {
   return (
     <>
@@ -3652,11 +3654,11 @@ export default AllJobs;
 
 ```js
 JobsContainer.js;
-import { useAppContext } from '../context/appContext';
-import { useEffect } from 'react';
-import Loading from './Loading';
-import Job from './Job';
-import Wrapper from '../assets/wrappers/JobsContainer';
+import { useAppContext } from "../context/appContext";
+import { useEffect } from "react";
+import Loading from "./Loading";
+import Job from "./Job";
+import Wrapper from "../assets/wrappers/JobsContainer";
 
 const JobsContainer = () => {
   const { getJobs, jobs, isLoading, page, totalJobs } = useAppContext();
@@ -3677,9 +3679,9 @@ const JobsContainer = () => {
   return (
     <Wrapper>
       <h5>
-        {totalJobs} job{jobs.length > 1 && 's'} found
+        {totalJobs} job{jobs.length > 1 && "s"} found
       </h5>
-      <div className='jobs'>
+      <div className="jobs">
         {jobs.map((job) => {
           return <Job key={job._id} {...job} />;
         })}
@@ -3694,7 +3696,7 @@ export default JobsContainer;
 ```js
 Job.js;
 
-import moment from 'moment';
+import moment from "moment";
 
 const Job = ({ company }) => {
   return <h5>{company}</h5>;
@@ -3719,11 +3721,11 @@ npm install moment
 ```js
 Job.js;
 
-import moment from 'moment';
+import moment from "moment";
 
 const Job = ({ company, createdAt }) => {
   let date = moment(createdAt);
-  date = date.format('MMM Do, YYYY');
+  date = date.format("MMM Do, YYYY");
   return (
     <div>
       <h5>{company}</h5>
@@ -3752,11 +3754,11 @@ value={{setEditJob,deleteJob}}
 ```js
 Job.js;
 
-import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { useAppContext } from '../context/appContext';
-import Wrapper from '../assets/wrappers/Job';
-import JobInfo from './JobInfo';
+import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useAppContext } from "../context/appContext";
+import Wrapper from "../assets/wrappers/Job";
+import JobInfo from "./JobInfo";
 
 const Job = ({
   _id,
@@ -3770,31 +3772,31 @@ const Job = ({
   const { setEditJob, deleteJob } = useAppContext();
 
   let date = moment(createdAt);
-  date = date.format('MMM Do, YYYY');
+  date = date.format("MMM Do, YYYY");
 
   return (
     <Wrapper>
       <header>
-        <div className='main-icon'>{company.charAt(0)}</div>
-        <div className='info'>
+        <div className="main-icon">{company.charAt(0)}</div>
+        <div className="info">
           <h5>{position}</h5>
           <p>{company}</p>
         </div>
       </header>
-      <div className='content'>
+      <div className="content">
         {/* content center later */}
         <footer>
-          <div className='actions'>
+          <div className="actions">
             <Link
-              to='/add-job'
+              to="/add-job"
               onClick={() => setEditJob(_id)}
-              className='btn edit-btn'
+              className="btn edit-btn"
             >
               Edit
             </Link>
             <button
-              type='button'
-              className='btn delete-btn'
+              type="button"
+              className="btn delete-btn"
               onClick={() => deleteJob(_id)}
             >
               Delete
@@ -3814,13 +3816,13 @@ export default Job;
 ```js
 JobInfo.js;
 
-import Wrapper from '../assets/wrappers/JobInfo';
+import Wrapper from "../assets/wrappers/JobInfo";
 
 const JobInfo = ({ icon, text }) => {
   return (
     <Wrapper>
-      <span className='icon'>{icon}</span>
-      <span className='text'>{text}</span>
+      <span className="icon">{icon}</span>
+      <span className="text">{text}</span>
     </Wrapper>
   );
 };
@@ -3831,8 +3833,8 @@ export default JobInfo;
 ```js
 Job.js;
 return (
-  <div className='content'>
-    <div className='content-center'>
+  <div className="content">
+    <div className="content-center">
       <JobInfo icon={<FaLocationArrow />} text={jobLocation} />
       <JobInfo icon={<FaCalendarAlt />} text={date} />
       <JobInfo icon={<FaBriefcase />} text={jobType} />
@@ -3847,7 +3849,7 @@ return (
 
 ```js
 actions.js;
-export const SET_EDIT_JOB = 'SET_EDIT_JOB';
+export const SET_EDIT_JOB = "SET_EDIT_JOB";
 ```
 
 ```js
@@ -3910,7 +3912,7 @@ const updateJob = async (req, res) => {
   const { company, position } = req.body;
 
   if (!company || !position) {
-    throw new BadRequestError('Please Provide All Values');
+    throw new BadRequestError("Please Provide All Values");
   }
 
   const job = await Job.findOne({ _id: jobId });
@@ -3944,7 +3946,7 @@ const updateJob = async (req, res) => {
   const { company, position, jobLocation } = req.body;
 
   if (!position || !company) {
-    throw new BadRequestError('Please provide all values');
+    throw new BadRequestError("Please provide all values");
   }
   const job = await Job.findOne({ _id: jobId });
 
@@ -3975,7 +3977,7 @@ const updateJob = async (req, res) => {
   const { company, position, status } = req.body;
 
   if (!position || !company) {
-    throw new BadRequestError('Please provide all values');
+    throw new BadRequestError("Please provide all values");
   }
   const job = await Job.findOne({ _id: jobId });
 
@@ -4008,13 +4010,13 @@ const updateJob = async (req, res) => {
 ```js
 checkPermissions.js;
 
-import { UnAuthorizedError } from '../errors/index.js';
+import { UnAuthorizedError } from "../errors/index.js";
 
 const checkPermissions = (requestUser, resourceUserId) => {
   // if (requestUser.role === 'admin') return
   if (requestUser.userId === resourceUserId.toString()) return;
   throw new CustomError.UnauthorizedError(
-    'Not authorized to access this route'
+    "Not authorized to access this route"
   );
 };
 
@@ -4038,7 +4040,7 @@ const deleteJob = async (req, res) => {
   checkPermissions(req.user, job.createdBy);
 
   await job.remove();
-  res.status(StatusCodes.OK).json({ msg: 'Success! Job removed' });
+  res.status(StatusCodes.OK).json({ msg: "Success! Job removed" });
 };
 ```
 
@@ -4047,7 +4049,7 @@ const deleteJob = async (req, res) => {
 ```js
 actions.js;
 
-export const DELETE_JOB_BEGIN = 'DELETE_JOB_BEGIN';
+export const DELETE_JOB_BEGIN = "DELETE_JOB_BEGIN";
 ```
 
 ```js
@@ -4076,9 +4078,9 @@ if (action.type === DELETE_JOB_BEGIN) {
 
 ```js
 actions.js;
-export const EDIT_JOB_BEGIN = 'EDIT_JOB_BEGIN';
-export const EDIT_JOB_SUCCESS = 'EDIT_JOB_SUCCESS';
-export const EDIT_JOB_ERROR = 'EDIT_JOB_ERROR';
+export const EDIT_JOB_BEGIN = "EDIT_JOB_BEGIN";
+export const EDIT_JOB_SUCCESS = "EDIT_JOB_SUCCESS";
+export const EDIT_JOB_ERROR = "EDIT_JOB_ERROR";
 ```
 
 ```js
@@ -4121,8 +4123,8 @@ if (action.type === EDIT_JOB_SUCCESS) {
     ...state,
     isLoading: false,
     showAlert: true,
-    alertType: 'success',
-    alertText: 'Job Updated!',
+    alertType: "success",
+    alertText: "Job Updated!",
   };
 }
 if (action.type === EDIT_JOB_ERROR) {
@@ -4130,7 +4132,7 @@ if (action.type === EDIT_JOB_ERROR) {
     ...state,
     isLoading: false,
     showAlert: true,
-    alertType: 'danger',
+    alertType: "danger",
     alertText: action.payload.msg,
   };
 }
@@ -4148,13 +4150,13 @@ if (action.type === EDIT_JOB_ERROR) {
 ```js
 populate.js;
 
-import { readFile } from 'fs/promises';
+import { readFile } from "fs/promises";
 
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
 
-import connectDB from './db/connect.js';
-import Job from './models/Job.js';
+import connectDB from "./db/connect.js";
+import Job from "./models/Job.js";
 
 const start = async () => {
   try {
@@ -4162,10 +4164,10 @@ const start = async () => {
     await Job.deleteMany();
 
     const jsonProducts = JSON.parse(
-      await readFile(new URL('./mock-data.json', import.meta.url))
+      await readFile(new URL("./mock-data.json", import.meta.url))
     );
     await Job.create(jsonProducts);
-    console.log('Success!!!!');
+    console.log("Success!!!!");
     process.exit(0);
   } catch (error) {
     console.log(error);
@@ -4185,12 +4187,12 @@ start();
 ```js
 jobsController.js;
 
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const showStats = async (req, res) => {
   let stats = await Job.aggregate([
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
-    { $group: { _id: '$status', count: { $sum: 1 } } },
+    { $group: { _id: "$status", count: { $sum: 1 } } },
   ]);
 
   res.status(StatusCodes.OK).json({ stats });
@@ -4208,7 +4210,7 @@ jobsController.js;
 const showStats = async (req, res) => {
   let stats = await Job.aggregate([
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
-    { $group: { _id: '$status', count: { $sum: 1 } } },
+    { $group: { _id: "$status", count: { $sum: 1 } } },
   ]);
 
   stats = stats.reduce((acc, curr) => {
@@ -4229,7 +4231,7 @@ jobsController.js;
 const showStats = async (req, res) => {
   let stats = await Job.aggregate([
     { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
-    { $group: { _id: '$status', count: { $sum: 1 } } },
+    { $group: { _id: "$status", count: { $sum: 1 } } },
   ]);
   stats = stats.reduce((acc, curr) => {
     const { _id: title, count } = curr;
@@ -4252,8 +4254,8 @@ const showStats = async (req, res) => {
 ```js
 actions.js;
 
-export const SHOW_STATS_BEGIN = 'SHOW_STATS_BEGIN';
-export const SHOW_STATS_SUCCESS = 'SHOW_STATS_SUCCESS';
+export const SHOW_STATS_BEGIN = "SHOW_STATS_BEGIN";
+export const SHOW_STATS_SUCCESS = "SHOW_STATS_SUCCESS";
 ```
 
 ```js
@@ -4313,9 +4315,9 @@ if (action.type === SHOW_STATS_SUCCESS) {
 ```js
 Stats.js;
 
-import { useEffect } from 'react';
-import { useAppContext } from '../../context/appContext';
-import { StatsContainer, Loading, ChartsContainer } from '../../components';
+import { useEffect } from "react";
+import { useAppContext } from "../../context/appContext";
+import { StatsContainer, Loading, ChartsContainer } from "../../components";
 
 const Stats = () => {
   const { showStats, isLoading, monthlyApplications } = useAppContext();
@@ -4343,33 +4345,33 @@ export default Stats;
 ```js
 StatsContainer.js;
 
-import { useAppContext } from '../context/appContext';
-import StatItem from './StatItem';
-import { FaSuitcaseRolling, FaCalendarCheck, FaBug } from 'react-icons/fa';
-import Wrapper from '../assets/wrappers/StatsContainer';
+import { useAppContext } from "../context/appContext";
+import StatItem from "./StatItem";
+import { FaSuitcaseRolling, FaCalendarCheck, FaBug } from "react-icons/fa";
+import Wrapper from "../assets/wrappers/StatsContainer";
 const StatsContainer = () => {
   const { stats } = useAppContext();
   const defaultStats = [
     {
-      title: 'pending applications',
+      title: "pending applications",
       count: stats.pending || 0,
       icon: <FaSuitcaseRolling />,
-      color: '#e9b949',
-      bcg: '#fcefc7',
+      color: "#e9b949",
+      bcg: "#fcefc7",
     },
     {
-      title: 'interviews scheduled',
+      title: "interviews scheduled",
       count: stats.interview || 0,
       icon: <FaCalendarCheck />,
-      color: '#647acb',
-      bcg: '#e0e8f9',
+      color: "#647acb",
+      bcg: "#e0e8f9",
     },
     {
-      title: 'jobs declined',
+      title: "jobs declined",
       count: stats.declined || 0,
       icon: <FaBug />,
-      color: '#d66a6a',
-      bcg: '#ffeeee',
+      color: "#d66a6a",
+      bcg: "#ffeeee",
     },
   ];
 
@@ -4390,16 +4392,16 @@ export default StatsContainer;
 ```js
 StatItem.js;
 
-import Wrapper from '../assets/wrappers/StatItem';
+import Wrapper from "../assets/wrappers/StatItem";
 
 function StatItem({ count, title, icon, color, bcg }) {
   return (
     <Wrapper color={color} bcg={bcg}>
       <header>
-        <span className='count'>{count}</span>
-        <div className='icon'>{icon}</div>
+        <span className="count">{count}</span>
+        <div className="icon">{icon}</div>
       </header>
-      <h5 className='title'>{title}</h5>
+      <h5 className="title">{title}</h5>
     </Wrapper>
   );
 }
@@ -4418,16 +4420,16 @@ let monthlyApplications = await Job.aggregate([
     $group: {
       _id: {
         year: {
-          $year: '$createdAt',
+          $year: "$createdAt",
         },
         month: {
-          $month: '$createdAt',
+          $month: "$createdAt",
         },
       },
       count: { $sum: 1 },
     },
   },
-  { $sort: { '_id.year': -1, '_id.month': -1 } },
+  { $sort: { "_id.year": -1, "_id.month": -1 } },
   { $limit: 6 },
 ]);
 ```
@@ -4444,7 +4446,7 @@ npm install moment
 ```js
 jobsController.js;
 
-import moment from 'moment';
+import moment from "moment";
 
 monthlyApplications = monthlyApplications
   .map((item) => {
@@ -4456,7 +4458,7 @@ monthlyApplications = monthlyApplications
     const date = moment()
       .month(month - 1)
       .year(year)
-      .format('MMM Y');
+      .format("MMM Y");
     return { date, count };
   })
   .reverse();
@@ -4469,12 +4471,12 @@ monthlyApplications = monthlyApplications
 
 ```js
 ChartsContainer.js;
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import BarChart from './BarChart';
-import AreaChart from './AreaChart';
-import { useAppContext } from '../context/appContext';
-import Wrapper from '../assets/wrappers/ChartsContainer';
+import BarChart from "./BarChart";
+import AreaChart from "./AreaChart";
+import { useAppContext } from "../context/appContext";
+import Wrapper from "../assets/wrappers/ChartsContainer";
 
 export default function ChartsContainer() {
   const [barChart, setBarChart] = useState(true);
@@ -4484,8 +4486,8 @@ export default function ChartsContainer() {
     <Wrapper>
       <h4>Monthly Applications</h4>
 
-      <button type='button' onClick={() => setBarChart(!barChart)}>
-        {barChart ? 'AreaChart' : 'BarChart'}
+      <button type="button" onClick={() => setBarChart(!barChart)}>
+        {barChart ? "AreaChart" : "BarChart"}
       </button>
       {barChart ? <BarChart data={data} /> : <AreaChart data={data} />}
     </Wrapper>
@@ -4516,22 +4518,22 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-} from 'recharts';
+} from "recharts";
 
 const BarChartComponent = ({ data }) => {
   return (
-    <ResponsiveContainer width='100%' height={300}>
+    <ResponsiveContainer width="100%" height={300}>
       <BarChart
         data={data}
         margin={{
           top: 50,
         }}
       >
-        <CartesianGrid strokeDasharray='3 3' />
-        <XAxis dataKey='date' />
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="date" />
         <YAxis allowDecimals={false} />
         <Tooltip />
-        <Bar dataKey='count' fill='#2cb1bc' barSize={75} />
+        <Bar dataKey="count" fill="#2cb1bc" barSize={75} />
       </BarChart>
     </ResponsiveContainer>
   );
@@ -4549,22 +4551,22 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-} from 'recharts';
+} from "recharts";
 
 const AreaChartComponent = ({ data }) => {
   return (
-    <ResponsiveContainer width='100%' height={300}>
+    <ResponsiveContainer width="100%" height={300}>
       <AreaChart
         data={data}
         margin={{
           top: 50,
         }}
       >
-        <CartesianGrid strokeDasharray='3 3' />
-        <XAxis dataKey='date' />
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="date" />
         <YAxis allowDecimals={false} />
         <Tooltip />
-        <Area type='monotone' dataKey='count' stroke='#2cb1bc' fill='#bef8fd' />
+        <Area type="monotone" dataKey="count" stroke="#2cb1bc" fill="#bef8fd" />
       </AreaChart>
     </ResponsiveContainer>
   );
@@ -4610,7 +4612,7 @@ const getAllJobs = async (req, res) => {
     createdBy: req.user.userId,
   };
 
-  if (status !== 'all') {
+  if (status !== "all") {
     queryObject.status = status;
   }
 
@@ -4639,10 +4641,10 @@ const getAllJobs = async (req, res) => {
     createdBy: req.user.userId,
   };
 
-  if (status !== 'all') {
+  if (status !== "all") {
     queryObject.status = status;
   }
-  if (jobType !== 'all') {
+  if (jobType !== "all") {
     queryObject.jobType = jobType;
   }
   // NO AWAIT
@@ -4670,30 +4672,30 @@ const getAllJobs = async (req, res) => {
     createdBy: req.user.userId,
   };
 
-  if (status !== 'all') {
+  if (status !== "all") {
     queryObject.status = status;
   }
-  if (jobType !== 'all') {
+  if (jobType !== "all") {
     queryObject.jobType = jobType;
   }
   if (search) {
-    queryObject.position = { $regex: search, $options: 'i' };
+    queryObject.position = { $regex: search, $options: "i" };
   }
   // NO AWAIT
   let result = Job.find(queryObject);
 
   // chain sort conditions
-  if (sort === 'latest') {
-    result = result.sort('-createdAt');
+  if (sort === "latest") {
+    result = result.sort("-createdAt");
   }
-  if (sort === 'oldest') {
-    result = result.sort('createdAt');
+  if (sort === "oldest") {
+    result = result.sort("createdAt");
   }
-  if (sort === 'a-z') {
-    result = result.sort('position');
+  if (sort === "a-z") {
+    result = result.sort("position");
   }
-  if (sort === 'z-a') {
-    result = result.sort('-position');
+  if (sort === "z-a") {
+    result = result.sort("-position");
   }
   const jobs = await result;
 
@@ -4744,9 +4746,9 @@ const handleChange = ({ name, value }) => {
 ```js
 SearchContainer.js;
 
-import { FormRow, FormRowSelect } from '.';
-import { useAppContext } from '../context/appContext';
-import Wrapper from '../assets/wrappers/SearchContainer';
+import { FormRow, FormRowSelect } from ".";
+import { useAppContext } from "../context/appContext";
+import Wrapper from "../assets/wrappers/SearchContainer";
 const SearchContainer = () => {
   const {
     isLoading,
@@ -4768,13 +4770,13 @@ const SearchContainer = () => {
 
   return (
     <Wrapper>
-      <form className='form'>
+      <form className="form">
         <h4>search form</h4>
         {/* search position */}
-        <div className='form-center'>
+        <div className="form-center">
           <FormRow
-            type='text'
-            name='search'
+            type="text"
+            name="search"
             value={search}
             handleChange={handleSearch}
           ></FormRow>
@@ -4793,9 +4795,9 @@ export default SearchContainer;
 ```js
 SearchContainer.js;
 
-import { FormRow, FormRowSelect } from '.';
-import { useAppContext } from '../context/appContext';
-import Wrapper from '../assets/wrappers/SearchContainer';
+import { FormRow, FormRowSelect } from ".";
+import { useAppContext } from "../context/appContext";
+import Wrapper from "../assets/wrappers/SearchContainer";
 
 const SearchContainer = () => {
   const {
@@ -4821,43 +4823,43 @@ const SearchContainer = () => {
   };
   return (
     <Wrapper>
-      <form className='form'>
+      <form className="form">
         <h4>search form</h4>
         {/* search position */}
-        <div className='form-center'>
+        <div className="form-center">
           <FormRow
-            type='text'
-            name='search'
+            type="text"
+            name="search"
             value={search}
             handleChange={handleSearch}
           ></FormRow>
           {/* search by status */}
           <FormRowSelect
-            labelText='job status'
-            name='searchStatus'
+            labelText="job status"
+            name="searchStatus"
             value={searchStatus}
             handleChange={handleSearch}
-            list={['all', ...statusOptions]}
+            list={["all", ...statusOptions]}
           ></FormRowSelect>
           {/* search by type */}
 
           <FormRowSelect
-            labelText='job type'
-            name='searchType'
+            labelText="job type"
+            name="searchType"
             value={searchType}
             handleChange={handleSearch}
-            list={['all', ...jobTypeOptions]}
+            list={["all", ...jobTypeOptions]}
           ></FormRowSelect>
           {/* sort */}
 
           <FormRowSelect
-            name='sort'
+            name="sort"
             value={sort}
             handleChange={handleSearch}
             list={sortOptions}
           ></FormRowSelect>
           <button
-            className='btn btn-block btn-danger'
+            className="btn btn-block btn-danger"
             disabled={isLoading}
             onClick={handleSubmit}
           >
@@ -4877,7 +4879,7 @@ export default SearchContainer;
 ```js
 actions.js;
 
-export const CLEAR_FILTERS = 'CLEAR_FILTERS';
+export const CLEAR_FILTERS = "CLEAR_FILTERS";
 ```
 
 ```js
@@ -4894,10 +4896,10 @@ reducer.js;
 if (action.type === CLEAR_FILTERS) {
   return {
     ...state,
-    search: '',
-    searchStatus: 'all',
-    searchType: 'all',
-    sort: 'latest',
+    search: "",
+    searchStatus: "all",
+    searchType: "all",
+    sort: "latest",
   };
 }
 ```
@@ -4964,27 +4966,27 @@ const getAllJobs = async (req, res) => {
     createdBy: req.user.userId,
   };
   if (search) {
-    queryObject.position = { $regex: search, $options: 'i' };
+    queryObject.position = { $regex: search, $options: "i" };
   }
-  if (status !== 'all') {
+  if (status !== "all") {
     queryObject.status = status;
   }
-  if (jobType !== 'all') {
+  if (jobType !== "all") {
     queryObject.jobType = jobType;
   }
   let result = Job.find(queryObject);
 
-  if (sort === 'latest') {
-    result = result.sort('-createdAt');
+  if (sort === "latest") {
+    result = result.sort("-createdAt");
   }
-  if (sort === 'oldest') {
-    result = result.sort('createdAt');
+  if (sort === "oldest") {
+    result = result.sort("createdAt");
   }
-  if (sort === 'a-z') {
-    result = result.sort('position');
+  if (sort === "a-z") {
+    result = result.sort("position");
   }
-  if (sort === 'z-a') {
-    result = result.sort('-position');
+  if (sort === "z-a") {
+    result = result.sort("-position");
   }
 
   const totalJobs = await result;
@@ -5014,27 +5016,27 @@ const getAllJobs = async (req, res) => {
     createdBy: req.user.userId,
   };
   if (search) {
-    queryObject.position = { $regex: search, $options: 'i' };
+    queryObject.position = { $regex: search, $options: "i" };
   }
-  if (status !== 'all') {
+  if (status !== "all") {
     queryObject.status = status;
   }
-  if (jobType !== 'all') {
+  if (jobType !== "all") {
     queryObject.jobType = jobType;
   }
   let result = Job.find(queryObject);
 
-  if (sort === 'latest') {
-    result = result.sort('-createdAt');
+  if (sort === "latest") {
+    result = result.sort("-createdAt");
   }
-  if (sort === 'oldest') {
-    result = result.sort('createdAt');
+  if (sort === "oldest") {
+    result = result.sort("createdAt");
   }
-  if (sort === 'a-z') {
-    result = result.sort('position');
+  if (sort === "a-z") {
+    result = result.sort("position");
   }
-  if (sort === 'z-a') {
-    result = result.sort('-position');
+  if (sort === "z-a") {
+    result = result.sort("-position");
   }
 
   // setup pagination
@@ -5062,27 +5064,27 @@ const getAllJobs = async (req, res) => {
     createdBy: req.user.userId,
   };
   if (search) {
-    queryObject.position = { $regex: search, $options: 'i' };
+    queryObject.position = { $regex: search, $options: "i" };
   }
-  if (status !== 'all') {
+  if (status !== "all") {
     queryObject.status = status;
   }
-  if (jobType !== 'all') {
+  if (jobType !== "all") {
     queryObject.jobType = jobType;
   }
   let result = Job.find(queryObject);
 
-  if (sort === 'latest') {
-    result = result.sort('-createdAt');
+  if (sort === "latest") {
+    result = result.sort("-createdAt");
   }
-  if (sort === 'oldest') {
-    result = result.sort('createdAt');
+  if (sort === "oldest") {
+    result = result.sort("createdAt");
   }
-  if (sort === 'a-z') {
-    result = result.sort('position');
+  if (sort === "a-z") {
+    result = result.sort("position");
   }
-  if (sort === 'z-a') {
-    result = result.sort('-position');
+  if (sort === "z-a") {
+    result = result.sort("-position");
   }
 
   // setup pagination
@@ -5108,16 +5110,16 @@ const getAllJobs = async (req, res) => {
 ```js
 JobsContainer.js;
 
-import PageBtnContainer from './PageBtnContainer';
+import PageBtnContainer from "./PageBtnContainer";
 
 const { numOfPages } = useAppContext();
 
 return (
   <Wrapper>
     <h5>
-      {totalJobs} job{jobs.length > 1 && 's'} found
+      {totalJobs} job{jobs.length > 1 && "s"} found
     </h5>
-    <div className='jobs'>
+    <div className="jobs">
       {jobs.map((job) => {
         return <Job key={job._id} {...job} />;
       })}
@@ -5132,30 +5134,30 @@ return (
 ```js
 PageBtnContainer.js;
 
-import { useAppContext } from '../context/appContext';
-import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
-import Wrapper from '../assets/wrappers/PageBtnContainer';
+import { useAppContext } from "../context/appContext";
+import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
+import Wrapper from "../assets/wrappers/PageBtnContainer";
 
 const PageButtonContainer = () => {
   const { numOfPages, page } = useAppContext();
 
   const prevPage = () => {
-    console.log('prev page');
+    console.log("prev page");
   };
   const nextPage = () => {
-    console.log('next page');
+    console.log("next page");
   };
 
   return (
     <Wrapper>
-      <button className='prev-btn' onClick={prevPage}>
+      <button className="prev-btn" onClick={prevPage}>
         <HiChevronDoubleLeft />
         prev
       </button>
 
-      <div className='btn-container'>buttons</div>
+      <div className="btn-container">buttons</div>
 
-      <button className='next-btn' onClick={nextPage}>
+      <button className="next-btn" onClick={nextPage}>
         next
         <HiChevronDoubleRight />
       </button>
@@ -5178,12 +5180,12 @@ const pages = Array.from({ length: numOfPages }, (_, index) => {
 });
 
 return (
-  <div className='btn-container'>
+  <div className="btn-container">
     {pages.map((pageNumber) => {
       return (
         <button
-          type='button'
-          className={pageNumber === page ? 'pageBtn active' : 'pageBtn'}
+          type="button"
+          className={pageNumber === page ? "pageBtn active" : "pageBtn"}
           key={pageNumber}
           onClick={() => console.log(page)}
         >
@@ -5199,7 +5201,7 @@ return (
 
 ```js
 actions.js;
-export const CHANGE_PAGE = 'CHANGE_PAGE';
+export const CHANGE_PAGE = "CHANGE_PAGE";
 ```
 
 ```js
@@ -5224,8 +5226,8 @@ PageBtnContainer.js;
 const { changePage } = useAppContext();
 return (
   <button
-    type='button'
-    className={pageNumber === page ? 'pageBtn active' : 'pageBtn'}
+    type="button"
+    className={pageNumber === page ? "pageBtn active" : "pageBtn"}
     key={pageNumber}
     onClick={() => changePage(pageNumber)}
   >
@@ -5318,22 +5320,22 @@ package.json
 ```js
 server.js;
 
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import path from 'path';
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import path from "path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // only when ready to deploy
-app.use(express.static(path.resolve(__dirname, './client/build')));
+app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 // routes
-app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/jobs', authenticateUser, jobsRouter);
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 
 // only when ready to deploy
-app.get('*', function (request, response) {
-  response.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
 ```
 
@@ -5356,9 +5358,9 @@ npm install helmet xss-clean express-mongo-sanitize express-rate-limit
 ```js
 server.js;
 
-import helmet from 'helmet';
-import xss from 'xss-clean';
-import mongoSanitize from 'express-mongo-sanitize';
+import helmet from "helmet";
+import xss from "xss-clean";
+import mongoSanitize from "express-mongo-sanitize";
 
 app.use(express.json());
 app.use(helmet());
@@ -5371,16 +5373,16 @@ app.use(mongoSanitize());
 ```js
 authRoutes.js;
 
-import rateLimiter from 'express-rate-limit';
+import rateLimiter from "express-rate-limit";
 
 const apiLimiter = rateLimiter({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 10,
-  message: 'Too many requests from this IP, please try again after 15 minutes',
+  message: "Too many requests from this IP, please try again after 15 minutes",
 });
 
-router.route('/register').post(apiLimiter, register);
-router.route('/login').post(apiLimiter, login);
+router.route("/register").post(apiLimiter, register);
+router.route("/login").post(apiLimiter, login);
 ```
 
 #### Deploy To Heroku

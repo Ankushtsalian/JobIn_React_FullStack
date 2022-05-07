@@ -24,7 +24,9 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    if (!email || !password || (!isMember && !name)) {
+      console.log("Please fill out all fields");
+    }
   };
 
   return (
@@ -42,6 +44,7 @@ const Register = () => {
             handleChange={handleChange}
           />
         )}
+
         {/* email field */}
         <FormRow
           type="email"
