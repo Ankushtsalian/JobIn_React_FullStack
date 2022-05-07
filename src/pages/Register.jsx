@@ -13,6 +13,10 @@ const Register = () => {
   const [values, setValues] = useState(initialState);
   const { name, email, password, isMember } = values;
 
+  const toggleMember = () => {
+    setValues((prev) => ({ ...prev, isMember: !isMember }));
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues((prev) => ({ ...prev, [name]: value }));
@@ -27,16 +31,17 @@ const Register = () => {
     <Wrapper className="full-page">
       <form className="form" onSubmit={onSubmit}>
         <Logo />
-        <h3>Login</h3>
+        <h3>{isMember ? "Login" : "Register"}</h3>
 
         {/* name field */}
-        <FormRow
-          type="text"
-          name="name"
-          value={name}
-          handleChange={handleChange}
-        />
-
+        {!isMember && (
+          <FormRow
+            type="text"
+            name="name"
+            value={name}
+            handleChange={handleChange}
+          />
+        )}
         {/* email field */}
         <FormRow
           type="email"
@@ -55,6 +60,12 @@ const Register = () => {
         <button type="submit" className="btn btn-block">
           submit
         </button>
+        <p>
+          {isMember ? "Not a member yet?" : "Already a member?"}
+          <button type="button" className="member-btn" onClick={toggleMember}>
+            {isMember ? "Register" : "Login"}
+          </button>
+        </p>
       </form>
     </Wrapper>
   );
