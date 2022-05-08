@@ -48,7 +48,9 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    toggleSidebar: (state) => (state.isSidebarOpen = !state.isSidebarOpen),
+    toggleSidebar: (state) => {
+      state.isSidebarOpen = !state.isSidebarOpen;
+    },
   },
   extraReducers: {
     [registerUser.pending]: (state) => {
