@@ -7,7 +7,7 @@ import {
 } from "../../utils/localStorage";
 
 const initialState = {
-  user: getUserFromLocalStorage,
+  user: getUserFromLocalStorage(),
   isLoading: false,
 };
 
@@ -53,6 +53,7 @@ const userSlice = createSlice({
 
     [registerUser.fulfilled]: (state, { payload }) => {
       const { user } = payload;
+
       state.isLoading = false;
       state.user = user;
       addUserToLocalStorage(user);
@@ -70,6 +71,7 @@ const userSlice = createSlice({
 
     [loginUser.fulfilled]: (state, { payload }) => {
       const { user } = payload;
+
       state.isLoading = false;
       state.user = user;
       addUserToLocalStorage(user);
