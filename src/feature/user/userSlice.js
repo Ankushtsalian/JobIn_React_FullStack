@@ -22,6 +22,7 @@ export const registerUser = createAsyncThunk(
     }
   }
 );
+
 export const loginUser = createAsyncThunk(
   "user/loginUser",
   async (user, thunkAPI) => {
@@ -57,6 +58,7 @@ const userSlice = createSlice({
       state.isLoading = false;
       toast.error(payload);
     },
+
     [loginUser.pending]: (state) => {
       state.isLoading = true;
     },
