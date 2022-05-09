@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Logo, FormRow } from "../components";
 import Wrapper from "../assets/wrappers/RegisterPage";
 import { toast } from "react-toastify";
 import { loginUser, registerUser } from "../feature/user/userSlice";
+
 const initialState = {
   name: "",
   email: "",
@@ -17,6 +19,8 @@ const Register = () => {
 
   const { user, isLoading } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const toggleMember = () => {
     setValues((prev) => ({ ...prev, isMember: !isMember }));
@@ -39,6 +43,14 @@ const Register = () => {
     }
     dispatch(registerUser({ name: name, email: email, password: password }));
   };
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    }
+  }, [user, navigate]);
 
   return (
     <Wrapper className="full-page">
@@ -71,9 +83,11 @@ const Register = () => {
           value={password}
           handleChange={handleChange}
         />
+
         <button type="submit" className="btn btn-block" disabled={isLoading}>
           {isLoading ? "Loading...." : "submit"}
         </button>
+
         <p>
           {isMember ? "Not a member yet?" : "Already a member?"}
           <button type="button" className="member-btn" onClick={toggleMember}>
