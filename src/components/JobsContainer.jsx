@@ -3,10 +3,15 @@ import { useEffect } from "react";
 import Wrapper from "../assets/wrappers/JobsContainer";
 import { useSelector, useDispatch } from "react-redux";
 import Loading from "./Loading";
+import { getAllJobs } from "../feature/allJobs/allJobsSlice";
 
 const JobsContainer = () => {
   const { jobs, isLoading } = useSelector((state) => state.allJobs);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllJobs());
+  }, []);
 
   if (isLoading) {
     return <Loading center />;
@@ -18,6 +23,7 @@ const JobsContainer = () => {
         <h3>No jobs to display</h3>;
       </Wrapper>
     );
+
   return (
     <Wrapper>
       <h5>Jobs info</h5>

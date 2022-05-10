@@ -22,7 +22,7 @@ const initialState = {
 };
 
 export const getAllJobs = createAsyncThunk(
-  "job/createJob",
+  "allJobs/getJobs",
   async (_, thunkAPI) => {
     return getAllJobsThunk("/jobs", thunkAPI);
   }
