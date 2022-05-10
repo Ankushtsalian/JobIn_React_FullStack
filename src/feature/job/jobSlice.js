@@ -30,7 +30,10 @@ const jobSlice = createSlice({
     handleChange: (state, { payload: { name, value } }) => {
       state[name] = value;
     },
-    clearValues: () => initialState,
+    clearValues: () => ({
+      ...initialState,
+      jobLocation: getUserFromLocalStorage()?.location || "",
+    }),
   },
   extraReducers: {
     [createJob.pending]: (state) => {

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { FormRow, FormRowSelect } from "../../components";
 import Wrapper from "../../assets/wrappers/DashboardFormPage";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,6 +10,7 @@ import {
 } from "../../feature/job/jobSlice";
 
 const AddJob = () => {
+  const { user } = useSelector((state) => state.user);
   const {
     isLoading,
     position,
@@ -40,6 +42,17 @@ const AddJob = () => {
     const { name, value } = e.target;
     dispatch(handleChange({ name, value }));
   };
+
+  useEffect(() => {
+    dispatch(
+      handleChange({
+        name: "jobLocation",
+        value: user.location,
+      })
+    );
+    //eslint-disable-next-line
+  }, []);
+
   return (
     <Wrapper>
       <form className="form">
