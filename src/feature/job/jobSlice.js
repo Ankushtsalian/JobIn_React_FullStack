@@ -6,6 +6,7 @@ const initialState = {
   isLoading: false,
   position: "",
   company: "",
+  jobLocation: "",
   jobTypeOptions: ["full-time", "part-time", "remote", "internship"],
   jobType: "full-time",
   statusOptions: ["pending", "interview", "declined"],
@@ -21,7 +22,8 @@ const jobSlice = createSlice({
     handleChange: (state, { payload: { name, value } }) => {
       state[name] = value;
     },
+    clearValues: () => initialState,
   },
 });
-export const { handleChange } = jobSlice.actions;
+export const { handleChange, clearValues } = jobSlice.actions;
 export default jobSlice.reducer;
