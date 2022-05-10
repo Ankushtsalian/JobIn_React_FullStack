@@ -55,6 +55,7 @@ const Wrapper = styled.aside`
   }
   .nav-link:hover {
     color: var(--grey-900);
+    padding-left: 1rem;
   }
   .nav-link:hover .icon {
     color: var(--primary-500);
