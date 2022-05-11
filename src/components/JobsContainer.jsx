@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-// import Job from "./Job";
+
 import Wrapper from "../assets/wrappers/JobsContainer";
 import { useSelector, useDispatch } from "react-redux";
 import Loading from "./Loading";
 import { getAllJobs } from "../feature/allJobs/allJobsSlice";
+import Job from "./Job";
 
 const JobsContainer = () => {
   const { jobs, isLoading } = useSelector((state) => state.allJobs);
@@ -11,6 +12,7 @@ const JobsContainer = () => {
 
   useEffect(() => {
     dispatch(getAllJobs());
+    //eslint-disable-next-line
   }, []);
 
   if (isLoading) {
@@ -28,9 +30,9 @@ const JobsContainer = () => {
     <Wrapper>
       <h5>Jobs info</h5>
       <div className="jobs">
-        {/* {jobs.map((job) => (
-          <job key={job._id} {...job} />
-        ))} */}
+        {jobs.map((job) => (
+          <Job key={job._id} {...job} />
+        ))}
       </div>
     </Wrapper>
   );
