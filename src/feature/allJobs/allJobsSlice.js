@@ -56,5 +56,6 @@ const allJobsSlice = createSlice({
   },
 });
 
-// export const { handleChange, clearValues } = jobSlice.actions;
+export const { handleChange, clearValues, hideLoading, showLoading } =
+  allJobsSlice.actions;
 export default allJobsSlice.reducer;
