@@ -56,6 +56,9 @@ const jobSlice = createSlice({
       state.isLoading = false;
       toast.error(payload);
     },
+    [deleteJob.fulfilled]: (state, { payload }) => {
+      toast.success(payload);
+    },
 
     [deleteJob.rejected]: (state, { payload }) => {
       toast.error(payload);
