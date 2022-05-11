@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Wrapper from "../assets/wrappers/Job";
 import JobInfo from "./JobInfo";
 import moment from "moment";
-import { deleteJob } from "../feature/job/jobSlice";
+import { deleteJob, setEditJob } from "../feature/job/jobSlice";
 
 const Job = (props) => {
   const { _id, position, company, jobLocation, jobType, createdAt, status } =
@@ -36,7 +36,22 @@ const Job = (props) => {
         </div>
         <footer>
           <div className="actions">
-            <Link to="/add-job" className="btn edit-btn">
+            <Link
+              to="/add-job"
+              className="btn edit-btn"
+              onClick={() =>
+                dispatch(
+                  setEditJob({
+                    editJobId: _id,
+                    position,
+                    company,
+                    jobLocation,
+                    jobType,
+                    status,
+                  })
+                )
+              }
+            >
               Edit
             </Link>
             <button
