@@ -3,11 +3,12 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Wrapper from "../assets/wrappers/Job";
 import JobInfo from "./JonInfo";
+import moment from "moment";
 
 const Job = (props) => {
   const { _id, position, company, jobLocation, jobType, createdAt, status } =
     props;
-  const date = createdAt;
+  const date = moment(createdAt).format("MMM Do, YYYY");
   const dispatch = useDispatch;
 
   return (
