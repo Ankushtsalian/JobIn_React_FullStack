@@ -44,12 +44,15 @@ const AddJob = () => {
   };
 
   useEffect(() => {
-    dispatch(
-      handleChange({
-        name: "jobLocation",
-        value: user.location,
-      })
-    );
+    if (!isEditing) {
+      dispatch(
+        handleChange({
+          name: "jobLocation",
+          value: user.location,
+        })
+      );
+    }
+
     //eslint-disable-next-line
   }, []);
 
