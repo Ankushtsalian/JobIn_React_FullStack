@@ -1,14 +1,25 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { StatsContainer, ChartsContainer, Loading } from "../../components";
 import { showStats } from "../../feature/allJobs/allJobsSlice";
 
 const Stats = () => {
+  const { isLoading, monthlyApplications } = useSelector(
+    (state) => state.allJobs
+  );
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(showStats());
+    //eslint-disable-next-line
   }, []);
 
-  return <div>Stats</div>;
+  return (
+    <>
+      <StatsContainer />
+      {monthlyApplications.length > 0 && <ChartsContainer />}
+    </>
+  );
 };
 
 export default Stats;
