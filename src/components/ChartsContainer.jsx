@@ -14,7 +14,6 @@ export default function ChartsContainer() {
       <button type="button" onClick={() => setBarChart(!barChart)}>
         {barChart ? "Bar Chart" : "Area Chart"}
       </button>
-
       {barChart ? (
         <BarChartComponent data={data} />
       ) : (
