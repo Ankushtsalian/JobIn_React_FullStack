@@ -8,8 +8,16 @@ const PageBtnContainer = () => {
 
   // const pages = Array.from({ length: numOfPages }, (_, index) => index + 1);
   const pages = [...Array(numOfPages).keys(), numOfPages].slice(1);
-  const nextPage = () => {};
-  const prevPage = () => {};
+
+  const nextPage = () => {
+    let newPage = page + 1;
+    dispatch(changePage(newPage));
+  };
+
+  const prevPage = () => {
+    let newPage = page - 1;
+    dispatch(changePage(newPage));
+  };
 
   const pageButtonHandler = (pageNumber) => {
     console.log(pageNumber);
