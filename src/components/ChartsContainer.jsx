@@ -3,7 +3,6 @@ import Wrapper from "../assets/wrappers/ChartsContainer";
 import { useSelector } from "react-redux";
 import AreaChartComponent from "./AreaChart";
 import BarChartComponent from "./BarChart";
-import { FaUnderline } from "react-icons/fa";
 
 export default function ChartsContainer() {
   const [barChart, setBarChart] = useState(true);
@@ -16,36 +15,38 @@ export default function ChartsContainer() {
         type="button"
         onClick={() => setBarChart(!barChart)}
         disabled={barChart}
-        style={
-          barChart
-            ? {
-                color: "#2cb1bc",
-                textDecorationLine: "underline",
-                fontSize: "35px",
-                padding: "15px",
-              }
-            : { color: "grey", fontSize: "25px", padding: "0px" }
-        }
+        className={barChart ? "chart" : "chart1"}
+        // style={
+        //   barChart
+        //     ? {
+        //         color: "#2cb1bc",
+        //         textDecorationLine: "underline",
+        //         fontSize: "35px",
+        //         padding: "15px",
+        //       }
+        //     : { color: "grey", fontSize: "25px", padding: "0px" }
+        // }
       >
-        Bar Chart
+        BAR CHART
       </button>
 
       <button
         type="button"
         onClick={() => setBarChart(!barChart)}
         disabled={!barChart}
-        style={
-          !barChart
-            ? {
-                color: "#2cb1bc",
-                textDecorationLine: "underline",
-                fontSize: "35px",
-                padding: "15px",
-              }
-            : { color: "grey", fontSize: "25px", padding: "0px" }
-        }
+        className={!barChart ? "chart" : "chart1"}
+        // style={
+        //   !barChart
+        //     ? {
+        //         color: "#2cb1bc",
+        //         textDecorationLine: "underline",
+        //         fontSize: "35px",
+        //         padding: "15px",
+        //       }
+        //     : { color: "grey", fontSize: "25px", padding: "0px" }
+        // }
       >
-        Area Chart
+        AREA CHART
       </button>
 
       {barChart ? (
