@@ -21,10 +21,10 @@ export default function ChartsContainer() {
             ? {
                 color: "#2cb1bc",
                 textDecorationLine: "underline",
-                fontSize: "25px",
+                fontSize: "35px",
                 padding: "15px",
               }
-            : { color: "grey", fontSize: "15px" }
+            : { color: "grey", fontSize: "25px", padding: "0px" }
         }
       >
         Bar Chart
@@ -39,10 +39,10 @@ export default function ChartsContainer() {
             ? {
                 color: "#2cb1bc",
                 textDecorationLine: "underline",
-                fontSize: "25px",
+                fontSize: "35px",
                 padding: "15px",
               }
-            : { color: "grey", fontSize: "15px" }
+            : { color: "grey", fontSize: "25px", padding: "0px" }
         }
       >
         Area Chart
