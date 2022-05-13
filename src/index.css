@@ -70,13 +70,12 @@ html {
 }
 .chart {
   color: var(--primary-500);
-  /* text-decoration-line: underline; */
-  font-size: 2.5rem;
-  padding: 3rem;
+  text-decoration-line: underline;
+  padding: 1rem;
 }
 .chart1 {
   color: grey;
-  font-size: 1.5rem;
+  padding: 1.5rem;
 }
 body {
   background: var(--backgroundColor);
