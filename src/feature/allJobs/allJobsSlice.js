@@ -41,7 +41,11 @@ const allJobsSlice = createSlice({
     clearFilters: (state) => {
       return { ...state, ...initialFilterState };
     },
+    changePage: (state, { payload }) => {
+      state.page = payload;
+    },
   },
+
   extraReducers: {
     [getAllJobs.pending]: (state) => {
       state.isLoading = true;
