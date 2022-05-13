@@ -1,3 +1,4 @@
+import authHeader from "../../utils/authHeader";
 import customFetch from "../../utils/axios";
 import { logoutUser } from "./userSlice";
 
@@ -29,11 +30,7 @@ export const loginUserThunk = async (url, user, thunkAPI) => {
 
 export const updateUserThunk = async (url, user, thunkAPI) => {
   try {
-    const resp = await customFetch.patch(url, user, {
-      headers: {
-        authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-      },
-    });
+    const resp = await customFetch.patch(url, user, authHeader(thunkAPI));
     return resp.data;
   } catch (error) {
     const message =
