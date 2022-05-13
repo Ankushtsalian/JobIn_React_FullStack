@@ -18,8 +18,13 @@ export default function ChartsContainer() {
         disabled={barChart}
         style={
           barChart
-            ? { color: "#2cb1bc", textDecorationLine: "underline" }
-            : { color: "#000" }
+            ? {
+                color: "#2cb1bc",
+                textDecorationLine: "underline",
+                fontSize: "25px",
+                padding: "15px",
+              }
+            : { color: "grey", fontSize: "15px" }
         }
       >
         Bar Chart
@@ -31,8 +36,13 @@ export default function ChartsContainer() {
         disabled={!barChart}
         style={
           !barChart
-            ? { color: "#2cb1bc", textDecorationLine: "underline" }
-            : { color: "#000" }
+            ? {
+                color: "#2cb1bc",
+                textDecorationLine: "underline",
+                fontSize: "25px",
+                padding: "15px",
+              }
+            : { color: "grey", fontSize: "15px" }
         }
       >
         Area Chart
