@@ -11,7 +11,6 @@ const JobsContainer = () => {
   const {
     jobs,
     isLoading,
-
     totalJobs,
     numOfPages,
     search,
