@@ -26,7 +26,6 @@ const PageBtnContainer = () => {
   };
 
   const pageButtonHandler = (pageNumber) => {
-    console.log(pageNumber);
     dispatch(changePage(pageNumber));
   };
   return (
