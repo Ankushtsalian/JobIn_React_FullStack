@@ -87,5 +87,6 @@ export const {
   hideLoading,
   showLoading,
   changePage,
+  clearAllJobsState,
 } = allJobsSlice.actions;
 export default allJobsSlice.reducer;
