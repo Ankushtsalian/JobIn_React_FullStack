@@ -15,17 +15,7 @@ export default function ChartsContainer() {
         type="button"
         onClick={() => setBarChart(!barChart)}
         disabled={barChart}
-        className={barChart ? "chart" : "chart1"}
-        // style={
-        //   barChart
-        //     ? {
-        //         color: "#2cb1bc",
-        //         textDecorationLine: "underline",
-        //         fontSize: "35px",
-        //         padding: "15px",
-        //       }
-        //     : { color: "grey", fontSize: "25px", padding: "0px" }
-        // }
+        className={barChart ? "chartActive" : "chart"}
       >
         BAR CHART
       </button>
@@ -34,17 +24,7 @@ export default function ChartsContainer() {
         type="button"
         onClick={() => setBarChart(!barChart)}
         disabled={!barChart}
-        className={!barChart ? "chart" : "chart1"}
-        // style={
-        //   !barChart
-        //     ? {
-        //         color: "#2cb1bc",
-        //         textDecorationLine: "underline",
-        //         fontSize: "35px",
-        //         padding: "15px",
-        //       }
-        //     : { color: "grey", fontSize: "25px", padding: "0px" }
-        // }
+        className={!barChart ? "chartActive" : "chart"}
       >
         AREA CHART
       </button>

@@ -15,6 +15,14 @@ const Wrapper = styled.section`
     text-align: center;
     margin-bottom: 0.75rem;
   }
+  @media (max-width: 992px) {
+    .chart {
+      font-size: 1.7rem;
+    }
+    .chartActive {
+      font-size: 1.7rem;
+    }
+  }
 `;
 
 export default Wrapper;
